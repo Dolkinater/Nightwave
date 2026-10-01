@@ -21,10 +21,10 @@ public class PlayerController : MonoBehaviour
 
     // Really annoying jump variables
     public bool isGrounded = true;
-    private float gravity = -9.81f;
+    public float gravity = -70f;
     private Vector3 velocity;
-    public bool jumpPressed = false;
-    public float jumpHeight = 3f;
+    private bool jumpPressed = false;
+    public float jumpHeight = 5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,7 +60,18 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        Debug.Log("Attack1");
+        if (currentCharacter == 1)
+        {
+            Debug.Log("Character1: Attack1");
+        }
+        if (currentCharacter == 2)
+        {
+            Debug.Log("Character2: Attack1");
+        }
+        if (currentCharacter == 3)
+        {
+            Debug.Log("Character3: Attack1");
+        }
     }
     public void Attack2(InputAction.CallbackContext context)
     {
@@ -68,7 +79,18 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        Debug.Log("Attack2");
+        if (currentCharacter == 1)
+        {
+            Debug.Log("Character1: Attack2");
+        }
+        if (currentCharacter == 2)
+        {
+            Debug.Log("Character2: Attack2");
+        }
+        if (currentCharacter == 3)
+        {
+            Debug.Log("Character3: Attack2");
+        }
     }
     public void SpecialAttack(InputAction.CallbackContext context)
     {
@@ -76,7 +98,18 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        Debug.Log("SpecialAttack");
+        if (currentCharacter == 1)
+        {
+            Debug.Log("Character1: SpecialAttack");
+        }
+        if (currentCharacter == 2)
+        {
+            Debug.Log("Character2: SpecialAttack");
+        }
+        if (currentCharacter == 3)
+        {
+            Debug.Log("Character3: SpecialAttack");
+        }
     }
 
     // Character Switch Section

@@ -836,6 +836,7 @@ GameObject:
   - component: {fileID: 1872868886}
   - component: {fileID: 1872868885}
   - component: {fileID: 1872868891}
+  - component: {fileID: 1872868892}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -887,8 +888,8 @@ MonoBehaviour:
   Character3: {fileID: 1133612640}
   currentCharacter: 1
   isGrounded: 1
-  jumpPressed: 0
-  jumpHeight: 3
+  gravity: -70
+  jumpHeight: 5
 --- !u!136 &1872868887
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1150,6 +1151,19 @@ MonoBehaviour:
   m_DefaultActionMap: Controller
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1872868892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872868884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31401dd2e93e524aa5a835c605ad9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovementSM
+  characterController: {fileID: 1872868885}
 --- !u!1 &2073662421
 GameObject:
   m_ObjectHideFlags: 0
