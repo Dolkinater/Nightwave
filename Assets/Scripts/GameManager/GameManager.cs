@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     public PlayerController playerController;
     
     // For now before the enemy script is set up i setup the event in the game manager side 
-    public static event Action onEnemyDeath;
 
     void Start()
     {
