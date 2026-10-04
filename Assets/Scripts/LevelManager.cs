@@ -1,9 +1,15 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public enum scoreMultiplier { 1.0, 1.5, 2.0 };
+public struct MultiplierTier
+{
+    public float tierMultiplier;
+    public int enemyKillsNeeded;
+    
+}
 public class LevelManager : MonoBehaviour
 {
     [FormerlySerializedAs("playerController")] public GameObject player;
@@ -13,6 +19,22 @@ public class LevelManager : MonoBehaviour
     
     [SerializeField]
     private int currentPoints;
+
+    [SerializeField] 
+    private int playerScore;
+    
+    [SerializeField]
+    private int savedPlayerScore;
+
+    private int enemyKillCount;
+    
+    private int comboBarHP = 5;
+
+    private float tierMultiplier;
+    
+    [SerializeField]
+    private MultiplierTier[] comboTier;
+    
 
     //The amount of kills/points needed to reach the multiplier state
     [SerializeField]
@@ -26,7 +48,6 @@ public class LevelManager : MonoBehaviour
     
     public LevelData levelData;
     
-    private scoreMultiplier scoreMultiplier;
 
     [FormerlySerializedAs("points")] public int totalPoints;
     
@@ -40,6 +61,7 @@ public class LevelManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         //Find the Player Controller
         player = GameObject.FindGameObjectWithTag("Player");
         
@@ -49,7 +71,13 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         //update the level timer
+        
         //Multiplier Coroutine
+        if (enemyKillCount >= killStreakValue)
+        {
+            StartKillStreaking();
+        }
+        
     }
 
     void Timer(float time)
@@ -59,6 +87,8 @@ public class LevelManager : MonoBehaviour
 
     void StartKillStreaking()
     {
+        
+        //Start the killstreaking coroutine s
         while (isKillStreaking)
         {
             return;
@@ -80,41 +110,59 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
 
-    IEnumerable<WaitForSeconds> Multiplier()
+    IEnumerator Multiplier()
     {
-        //Stores the amount of points earned while killstreaking
-        currentPoints = 0;
         
         //Make it so that it cant be called again
         isKillStreaking = true;
         
-        while (isKillStreaking)
+        float timer = streakCutoff;
+
+        comboBarHP = 5;
+
+        int lastKill = enemyKillCount;
+        
+        //timer has to reset everytime a point is gained
+        // can only run while this combo still has HP
+        
+        while (timer > 0  && comboBarHP > 0)
         {
-            //increment points
-            PointCounter(currentPoints);
-            
-            
-            
-            //Run a switchcase while kill streaking 
-            switch (currentPoints)
+            //if the current points increases during the loop set reset the timer
+            if (enemyKillCount > lastKill)
             {
-                case >= 100:
-                    
+                timer = streakCutoff;
+                lastKill = enemyKillCount;
+            }
+            else{
+                timer -= Time.deltaTime;
+
             }
             
-            yield return new WaitForSeconds(streakCutoff);
+            //Checks for Combo HP damage
 
-            break;
+            
+            //Run a switchcase while kill streaking 
+            foreach ( MultiplierTier tier in comboTier )
+            {
+                if (enemyKillCount >= tier.enemyKillsNeeded)
+                {
+                    tierMultiplier = tier.tierMultiplier;
+                }
+            }
+            
+            yield return null;
+            
         }
         
         isKillStreaking = false;
     }
     
     
-    private void PointCounter(int pointValue)
+    private void KillCounter()
     {
-        totalPoints += pointValue;
-        
+
+        enemyKillCount++;
+        // Enemy must listen to this event and this will fire off when the enemies die
         onEnemyDeath?.Invoke();
     }
     
