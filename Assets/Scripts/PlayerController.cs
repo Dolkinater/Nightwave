@@ -1,14 +1,17 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public StateMachine SM;
     public float speed = 10f;
 
-    private CharacterController playerController;
-    private Vector2 moveInput;
+    [HideInInspector] public CharacterController playerController;
+
+    [HideInInspector] public Vector2 moveInput;
 
     public Transform MainCamera;
 
@@ -21,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     // Really annoying jump variables
     public bool isGrounded = true;
+    [Header("Jump Settings")]
     public float gravity = -70f;
     private Vector3 velocity;
     private bool jumpPressed = false;
@@ -50,8 +54,93 @@ public class PlayerController : MonoBehaviour
         {
             jumpPressed = true;
         }
+        if (groundedDash)
+        {
+            jumpPressed = true;
+        }
+    }
+    [Header("Dash Settings")]
+    public float dashSpeed;
+    public float dashTime;
+
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+        {
+            return;
+        }
+        StartCoroutine(DashCoroutine());
     }
 
+    private bool isDashing = false;
+    public bool groundedDash = false;
+    public bool jumpDash = false;
+    public bool jumpDashAirborneFalling = false;
+    private Vector3 dashMomentum = Vector3.zero;
+    IEnumerator DashCoroutine()
+    { 
+        isDashing = true;
+        jumpDash = false;
+        float gravityValue = gravity;
+        gravity = 0f;
+        velocity.y = 0f;
+        bool noMovementDash = false;
+        float fakeMoveInput = 0f;
+        if (moveInput == Vector2.zero)
+        {
+            fakeMoveInput = 1f;
+            noMovementDash = true;
+        }
+        if (isGrounded)
+        {
+            groundedDash = true;
+        }
+        if (noMovementDash)
+        {
+            Vector3 moveDirection = new Vector3(moveInput.x, 0, fakeMoveInput);
+            Vector3 moveRotation = transform.TransformDirection(moveDirection);
+            float startTime = Time.time;
+            while (Time.time < startTime + dashTime)
+            {
+                if (groundedDash && jumpPressed)
+                {
+                    jumpDash = true;
+                    dashMomentum *= 2f;
+                    break;
+                }
+                playerController.Move(moveRotation * dashSpeed * Time.deltaTime);
+                dashMomentum = moveRotation * dashSpeed;
+                yield return null;
+            }
+        }
+        else
+        {
+            Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
+            Vector3 moveRotation = transform.TransformDirection(moveDirection);
+            float startTime = Time.time;
+            while (Time.time < startTime + dashTime)
+            {
+                if (groundedDash && jumpPressed)
+                {
+                    jumpDash = true;
+                    dashMomentum *= 2f;
+                    break;
+                }
+                playerController.Move(moveRotation * dashSpeed * Time.deltaTime);
+                dashMomentum = moveRotation * dashSpeed;
+                yield return null;
+            }
+        }
+
+        gravity = gravityValue;
+        groundedDash = false;
+        isDashing = false;
+    }
+
+    public void Slide(InputAction.CallbackContext context)
+    {
+        
+    }
 
     // Attack Section
     public void Attack1(InputAction.CallbackContext context)
@@ -158,11 +247,31 @@ public class PlayerController : MonoBehaviour
             jumpPressed = false;
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        
+        
         Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
         Vector3 moveRotation = transform.TransformDirection(moveDirection);
-
         Vector3 movement = moveRotation * speed + velocity;
+        if (!isDashing && jumpDash)
+        {
+            movement = moveRotation * speed + dashMomentum + velocity;
+            dashMomentum = Vector3.Lerp(dashMomentum, Vector3.zero, Time.deltaTime * 3f);
+            if (dashMomentum.magnitude < 0.1f)
+            {
+                dashMomentum = Vector3.zero;
+                jumpDash = false;
+            }
+            if (velocity.y < -5f)
+            {
+                jumpDashAirborneFalling = true;
+            }
+            if (jumpDashAirborneFalling && isGrounded)
+            {
+                dashMomentum = Vector3.zero;
+                jumpDashAirborneFalling = false;
+            }
+        }
+        velocity.y += gravity * Time.deltaTime;
         playerController.Move(movement * Time.deltaTime);
     }
 }

@@ -881,10 +881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a8e34c3e5c3fa44a8e7b875be31c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  SM: {fileID: 1872868892}
-  speed: 20
-  playerController: {fileID: 0}
-  moveInput: {x: 0, y: 0}
+  speed: 10
   MainCamera: {fileID: 330585546}
   Character1: {fileID: 25555128}
   Character2: {fileID: 2073662421}
@@ -893,11 +890,6 @@ MonoBehaviour:
   isGrounded: 1
   gravity: -70
   jumpHeight: 5
-  dashSpeed: 30
-  dashTime: 0.3
-  groundedDash: 0
-  jumpDash: 0
-  jumpDashAirborneFalling: 0
 --- !u!136 &1872868887
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1154,38 +1146,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b89a524f-7254-4e6f-95c8-329a3ac69d98
     m_ActionName: 'Controller/Mouse[/Mouse/delta]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1872868886}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Slide
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c8508f30-6afd-4901-b3b7-8f38211e8c7c
-    m_ActionName: 'Controller/Slide[/Keyboard/ctrl]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1872868886}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Dash
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 4e1ba2f4-af85-448f-a57c-a03567c1d011
-    m_ActionName: 'Controller/Dash[/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Controller
