@@ -6,6 +6,8 @@ public class RankManager : MonoBehaviour
 {
 
     private Rank currentRank;
+    
+    public PlayerData playerData;
 
 
     void Awake()
@@ -28,26 +30,23 @@ public class RankManager : MonoBehaviour
     {
         currentRank = rank;
 
-        switch (Score)
+        switch (playerData.tempScore)
         {
-            case >= 100.0f:
+            case >= 100:
                 rank = Rank.S;
                 break;
-            case >= 75.0f and < 100.0f :
+            case >= 75:
                 rank = Rank.A;
                 break;
-            case >=  50.0f and < 75.0f :
+            case >=  50:
                 rank = Rank.B;
                 break;
-            case >= 25.0f and < 50.0f :
+            case >= 25:
                 rank = Rank.C;
                 break;
-            case < 25.0f:
+            case < 25:
                 rank = Rank.D;
                 break;
-
-            
-            
             
         }
     }
