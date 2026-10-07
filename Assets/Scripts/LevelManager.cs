@@ -95,6 +95,7 @@ public class LevelManager : MonoBehaviour
     public static void OnLevelQuit()
     {
         
+        
         OnLevelEndEvent?.Invoke(false);
         // use cases:
         // exiting the user out of the level and returning them to level selection
