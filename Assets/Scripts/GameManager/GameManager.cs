@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     void LoadMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
     }
 
     void Pause()
