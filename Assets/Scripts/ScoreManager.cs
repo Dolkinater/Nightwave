@@ -17,17 +17,13 @@ public class ScoreManager : MonoBehaviour
     private int currentPoints;
 
     [SerializeField] 
-    private int playerScore;
+    private int uncalculatedScore;
     
     [SerializeField]
     private int savedPlayerScore;
     
     [SerializeField]
     private int enemyKillCount;
-
-    private float activeTimer;
-
-    private float storedTimer;
     
     public LevelData levelData;
     
@@ -39,32 +35,32 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private float streakCutoff = 5.0f;
     [SerializeField] private MultiplierTier[] comboTier;
     [SerializeField] private int comboHitThreshold;
+    [SerializeField] private int playerScore;
     private float tierMultiplier;
-
-    #endregion
-
-    #region Events
-        
-    #endregion
-
     public int totalPoints;
+
+    #endregion
+    
+
+    
     
 
     void Awake()
     {
         Health.OnHealthChangeEvent += OnDamagedCombo;
+        CheckpointLogic.OnCheckpointReached += StoreScore;
+        //Enemy event subscribe
     }
     
     void OnDestroy()
     {
         Health.OnHealthChangeEvent -= OnDamagedCombo;
+        CheckpointLogic.OnCheckpointReached -= StoreScore;
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-        
         
 
         
@@ -74,12 +70,14 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        //Multiplier Coroutine
-        if (enemyKillCount >= killStreakValue)
+        if (!isKillStreaking)
         {
-            StartKillStreaking();
+            if (enemyKillCount >= killStreakValue)
+            {
+                StartKillStreaking();
+            }
         }
+        //Multiplier Coroutine
         
     }
     
@@ -122,7 +120,7 @@ public class ScoreManager : MonoBehaviour
         int lastKill = enemyKillCount;
         
         //change name
-        playerScore = 0;
+        uncalculatedScore = 0;
         
         //timer has to reset everytime a point is gained
         // can only run while this combo still has HP
@@ -134,7 +132,7 @@ public class ScoreManager : MonoBehaviour
             {
                 timer = streakCutoff;
                 lastKill = enemyKillCount;
-                playerScore++;
+                uncalculatedScore++;
 
                 for (int i = comboTier.Length - 1; i >= 0; i--)
                 {
@@ -152,7 +150,8 @@ public class ScoreManager : MonoBehaviour
             yield return null;
             
         }
-        
+
+        enemyKillCount = 0;
         
         //End the kill Streaking state
         isKillStreaking = false;
@@ -164,9 +163,15 @@ public class ScoreManager : MonoBehaviour
 
     private void SetScore()
     {
-        // Multiply the points earned during the kill streak to the total score
-        totalPoints += Mathf.FloorToInt(playerScore* tierMultiplier);
         
+        totalPoints =  playerScore + Mathf.RoundToInt(uncalculatedScore * tierMultiplier);
+        playerScore = totalPoints;
+
+    }
+
+    private void StoreScore()
+    {
+        CheckpointLogic.storedScore = totalPoints;
     }
     
 

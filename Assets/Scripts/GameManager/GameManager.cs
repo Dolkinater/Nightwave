@@ -24,12 +24,15 @@ public class GameManager : MonoBehaviour
     
     public PlayerData playerData;
     
+    public delegate void OnChangeState(GameState newState);
+    public static event OnChangeState OnChangeStateEvent;
+    
     // For now before the enemy script is set up i setup the event in the game manager side 
     
 
     void Start()
     {
-        //Level manager Script sends the event that its started
+        ChangeState(GameState.MainMenu);
         
     }
     
@@ -46,11 +49,11 @@ public class GameManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         
-       // LevelManager.OnLevelQuit +=
+       
         
     }
 
-    void ChangeState(GameState newState)
+    public void ChangeState(GameState newState)
     {
         currentState = newState;
 
@@ -62,10 +65,11 @@ public class GameManager : MonoBehaviour
             case GameState.MainMenu:
                 LoadMenu();
                 break;
-            case GameState.Win:
-                LoadMenu();
+            case GameState.Active:
                 break;
         }
+        
+        OnChangeStateEvent?.Invoke(currentState);
     }
 
     void Exit(bool completedLevel)
@@ -77,8 +81,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            playerData.finalScore = playerData.tempScore;
             
+            playerData.topRank = playerData.tempRank;
+            LoadMenu();
         }
+        
+        
     }
 
     void LoadMenu()

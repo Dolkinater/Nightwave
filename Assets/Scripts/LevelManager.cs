@@ -14,24 +14,17 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private bool levelComplete;
     
-    [SerializeField]
-    private int currentPoints;
-
-    [SerializeField] 
-    private int playerScore;
-    
-    [SerializeField]
-    private int savedPlayerScore;
-    
-    [SerializeField]
-    private int enemyKillCount;
-
     public GameObject[] checkpoints;
 
+    //on Enemy death event should pass the enemy itself as a parameter for death handling
+    // For example when an enemy dies the level manger should find the enemy killed and it to checkpoints temp killed enemies
     public GameObject[] enemies;
 
     public GameObject endpoint;
+
+    public GameObject startpoint;
     
+    // List of enemies could be stored in here but for the prototyped just getting them out if more important than polish
     public LevelData levelData;
 
     #endregion
@@ -47,17 +40,17 @@ public class LevelManager : MonoBehaviour
 
     #endregion
 
-    [FormerlySerializedAs("points")] public int totalPoints;
+    
     
 
     void Awake()
     {
-        
+        //Subscribe to the enemy death event
     }
     
     void OnDestroy()
     {
-       
+        //Subscribe to the enemy death event
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -66,7 +59,6 @@ public class LevelManager : MonoBehaviour
         
         //Find the Player Controller
         player = GameObject.FindGameObjectWithTag("Player");
-
         
 
     }
@@ -76,7 +68,6 @@ public class LevelManager : MonoBehaviour
     {
         
     }
-    
     
     
     public static void OnLevelComplete()
