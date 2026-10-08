@@ -15,6 +15,8 @@ public class Char1StatePrimaryAttack : StatesBase
     public override void thisStart()
     {
         actionCoroutine = sm.StartCoroutine(Attack());
+        
+        sm.c1Attack1.SetActive(true);
     }
 
 
@@ -25,11 +27,12 @@ public class Char1StatePrimaryAttack : StatesBase
             sm.StopCoroutine(actionCoroutine);
             actionCoroutine = null;
         }
+        
+        sm.c1Attack1.SetActive(false);
     }
 
     IEnumerator Attack()
     {
-        sm.c1Attack1.SetActive(true);
         yield return new WaitForSeconds(0.7f);
         sm.c1Attack1.SetActive(false);
         yield return new WaitForSeconds(0.3f);

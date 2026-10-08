@@ -21,9 +21,8 @@ public class PlayerStateGrounded : StatesBase
 
         //input checks
 
-        if (sm.inputController.GetJumpPressed())
+        if (sm.inputController.GetJumpPressed() && sm.playerController.isGrounded)
         {
-            Debug.Log("Go");
             sm.ChangeState(sm.JumpState);
             return;
         }

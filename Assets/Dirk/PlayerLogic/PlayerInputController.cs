@@ -34,7 +34,7 @@ public class PlayerInputController : MonoBehaviour
          }*/
 
         jumpPressed = true;
-        jumpBuffer = 0.5f;
+        jumpBuffer = 0.075f;
     }
 
     private bool dashPressed = false;

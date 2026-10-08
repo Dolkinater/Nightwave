@@ -19,6 +19,8 @@ public class Char1StateSpecialAttack : StatesBase
         sm.particleController.CallParticle(PlayerParticleController.ParticleStates.c1_specialState);
         sm.speed = sm.speed / 2;
         sm.canMove = true;
+
+        sm.c1SpAttack.SetActive(true);
     }
 
 
@@ -32,13 +34,14 @@ public class Char1StateSpecialAttack : StatesBase
 
         sm.speed = sm.speed * 2;
         sm.canMove = false;
+
+        
+        sm.c1SpAttack.SetActive(false);
     }
 
     IEnumerator Attack()
     {
-        sm.c1SpAttack.SetActive(true);
         yield return new WaitForSeconds(2f);
-        sm.c1SpAttack.SetActive(false);
         sm.ChangeState(sm.IdleState);
     }
 }
