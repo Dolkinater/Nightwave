@@ -4,6 +4,7 @@ public class C1Attack1 : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Enemy")) { return; }
         Health enemyHealth = other.gameObject.GetComponent<Health>();
         if (enemyHealth != null)
         {

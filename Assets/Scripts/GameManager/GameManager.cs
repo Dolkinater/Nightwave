@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
                 LoadMenu();
                 break;
             case GameState.Active:
+                SetActive();
                 break;
         }
         
@@ -88,6 +89,10 @@ public class GameManager : MonoBehaviour
         }
         
         
+    }
+
+    void SetActive(){
+        Time.timeScale = 1;
     }
 
     void LoadMenu()

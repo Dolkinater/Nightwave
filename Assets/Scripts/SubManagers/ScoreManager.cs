@@ -114,6 +114,8 @@ public class ScoreManager : MonoBehaviour
         
         //Make it so that it cant be called again
         isKillStreaking = true;
+
+        Debug.Log("I am Killstreaking");
         
         float timer = streakCutoff;
 
@@ -154,6 +156,8 @@ public class ScoreManager : MonoBehaviour
         }
 
         enemyKillCount = 0;
+
+        Debug.Log("I am not killstreaking");
         
         //End the kill Streaking state
         isKillStreaking = false;
@@ -181,7 +185,9 @@ public class ScoreManager : MonoBehaviour
         
         if (unitAffiliation == Health.UnitAffiliation.enemy)
         {
-            //Check the scoreDistributor and add its value to the score
+            enemyKillCount++;
+            playerScore += unit.GetComponent<pointDistributor>().scoreValue;
+            Debug.Log("Player score now equals: " +playerScore);
         }
     }
     

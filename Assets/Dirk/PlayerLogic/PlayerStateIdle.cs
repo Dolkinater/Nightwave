@@ -11,9 +11,6 @@ public class PlayerStateIdle : PlayerStateGrounded
 
     public override void thisStart()
     {
-        Debug.Log("Idle");
-
-
         sm.particleController.CallParticle(PlayerParticleController.ParticleStates.none);
     }
 

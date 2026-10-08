@@ -12,7 +12,7 @@ public class PlayerStateMove : PlayerStateGrounded
     public override void thisStart()
     {
         base.thisStart();
-        sm.canMove = true; Debug.Log("Move");
+        sm.canMove = true;
         sm.particleController.CallParticle(PlayerParticleController.ParticleStates.walkState);
     }
 

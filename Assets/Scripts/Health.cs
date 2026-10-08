@@ -70,6 +70,7 @@ public class Health : MonoBehaviour
         
         if (currentHealthPoints <= 0)
         {
+            Debug.Log("Dead");
             OnUnitDeathEvent?.Invoke(thisUnitType, this.gameObject); // calls an event to functions with UnitAffiliation as a paramater, and thisUnitType defines the parameter's value
 
                 // examples of subscribed functions
