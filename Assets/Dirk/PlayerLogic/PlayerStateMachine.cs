@@ -182,8 +182,15 @@ public class PlayerStateMachine : StateMachine
         playerController.Move(movement * Time.deltaTime);
     }
 
-    public void CallAttack(int attackValue)
+    public void CallAttack()
     {
+        int attackValue = (inputController.GetAttackValue());
+
+        if (attackValue == -1)
+        {
+            return; // no attack given
+        }
+
         switch (currentCharacter)
         {
             case 0:

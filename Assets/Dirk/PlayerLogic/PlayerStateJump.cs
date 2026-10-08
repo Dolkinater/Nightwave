@@ -20,7 +20,7 @@ public class PlayerStateJump : StatesBase
 
     public override void thisUpdate()
     {
-
+        sm.CallAttack();
     }
 
     public override void thisFixedUpdate()

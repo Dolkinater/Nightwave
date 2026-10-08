@@ -35,19 +35,14 @@ public class PlayerStateGrounded : StatesBase
             return;
         }
 
-        int a = (sm.inputController.GetSwapValue());
+        int a = (sm.inputController.GetSwapValue()); // character swapping
 
         if  (a != -1)
         {
             sm.SetCurrentCharacter(a);
         }
 
-        int b = (sm.inputController.GetAttackValue());
-
-        if (b != -1)
-        {
-            sm.CallAttack(b);
-        }
+        sm.CallAttack(); // character combat
     }
 
     public override void thisFixedUpdate()
