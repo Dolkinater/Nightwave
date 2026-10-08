@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class EnemyStateMachine : MonoBehaviour
+public abstract class EnemyStateMachine_Deprecated : MonoBehaviour
 {
     protected EnemyBaseState currentState;
 

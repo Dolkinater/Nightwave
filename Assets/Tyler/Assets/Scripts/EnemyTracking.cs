@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class EnemyTracking : EnemyStateMachine
+public class EnemyTracking : EnemyStateMachine_Deprecated
 {
     [Header("References")]
     public Transform player;
