@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 40c62789da9b48c43bf254b2984378a0
+guid: cc36cb1e88e9fde448851361c980f295
 ModelImporter:
   serializedVersion: 24600
   internalIDToNameTable: []
@@ -18,12 +18,12 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Run_016_FBX' has import animation warnings that might lower retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Lily M._Hips' has translation animation that will be discarded.\n\t'Lily M._Hips' is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Lily M._Spine' has translation animation that will be discarded.\n\t'Lily M._Spine1' has translation animation that will be discarded.\n\t'Lily M._Spine1' is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Lily M._Neck' has translation animation that will be discarded.\n\t'Lily M._Head' has translation animation that will be discarded.\n"
+    animationImportWarnings: "\nClip 'Run_003_FBX' has import animation warnings that might lower retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Lily M._Hips' has translation animation that will be discarded.\n\t'Lily M._Hips' is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Lily M._Spine' has translation animation that will be discarded.\n\t'Lily M._Spine1' has translation animation that will be discarded.\n\t'Lily M._Spine1' is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Lily M._Neck' has translation animation that will be discarded.\n\t'Lily M._Head' has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -32,25 +32,25 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Character1_Anim_Idle
-      takeName: Run_016_FBX
-      internalID: -2810981866489521879
-      firstFrame: 194
-      lastFrame: 739
+      name: Character1_Anim_Stance
+      takeName: Run_003_FBX
+      internalID: 4720892378859342180
+      firstFrame: 163
+      lastFrame: 1264
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000u
@@ -519,45 +519,45 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: 1_idle_animation(Clone)
+    - name: 1_idle(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M. Mesh
-      parentName: 1_idle_animation(Clone)
+      parentName: 1_idle(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._Root
-      parentName: 1_idle_animation(Clone)
-      position: {x: -0.08479646, y: 0, z: 0}
-      rotation: {x: 0.002928075, y: -0.99949837, z: -0.01778733, w: -0.026041357}
+      parentName: 1_idle(Clone)
+      position: {x: -0.056324452, y: 0, z: 0}
+      rotation: {x: -0, y: -0.9999958, z: 0, w: -0.0029026393}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._Hips
       parentName: Lily M._Root
-      position: {x: -0.084172286, y: 0.8775275, z: 0.1287539}
-      rotation: {x: -0.00012337146, y: 0.99951357, z: -0.02573252, w: -0.017622506}
+      position: {x: -0.055557206, y: 0.8817813, z: 0.13232337}
+      rotation: {x: 0.0004877786, y: 0.9991088, z: -0.04219448, w: 0.0010000711}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftUpLeg
       parentName: Lily M._Hips
-      position: {x: -0.08883495, y: 0.000000013838871, z: 0.0000000044237822}
-      rotation: {x: -0.08204827, y: 0.004696059, z: -0.034184966, w: 0.99603087}
+      position: {x: -0.088834874, y: -0.0000000052459654, z: -0.0000000019936124}
+      rotation: {x: -0.103144504, y: 0.015183529, z: -0.039754536, w: 0.99375564}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftLeg
       parentName: Lily M._LeftUpLeg
-      position: {x: -0.000000009313226, y: -0.40626818, z: 0.000000029802322}
-      rotation: {x: 0.18731242, y: -0.0000000034924588, z: -0.0000000037252896, w: 0.9823004}
+      position: {x: 0.000000007450581, y: -0.40626815, z: -0.000000014901161}
+      rotation: {x: 0.18997754, y: -0.0000000016298147, z: 0.0000000037252907, w: 0.98178846}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftFoot
       parentName: Lily M._LeftLeg
-      position: {x: -0.000000009313226, y: -0.38643694, z: -0.000000044703484}
-      rotation: {x: -0.13539392, y: -0.05705627, z: 0.042716186, w: 0.98822486}
+      position: {x: 0.000000007450581, y: -0.3864369, z: 0}
+      rotation: {x: -0.12160297, y: -0.049278945, z: 0.03833707, w: 0.9906133}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftToeBase
       parentName: Lily M._LeftFoot
-      position: {x: 0.0000000027939677, y: -0.057742685, z: 0.1332524}
-      rotation: {x: 0.008227787, y: 0.000000006362824, z: -3.492459e-10, w: 0.99996614}
+      position: {x: 0.000000004656613, y: -0.057742685, z: 0.13325234}
+      rotation: {x: 0.026755655, y: -0.0000000029976948, z: 9.313227e-10, w: 0.999642}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LToeEnd
       parentName: Lily M._LeftToeBase
@@ -566,23 +566,23 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightUpLeg
       parentName: Lily M._Hips
-      position: {x: 0.08883495, y: -0.000000013846147, z: -0.0000000048894435}
-      rotation: {x: -0.05792592, y: -0.010581015, z: 0.056341335, w: 0.99667364}
+      position: {x: 0.088834874, y: 0.0000000052459654, z: 0.0000000019936124}
+      rotation: {x: -0.053021412, y: -0.00052339135, z: 0.061466563, w: 0.99669975}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightLeg
       parentName: Lily M._RightUpLeg
-      position: {x: 0.000000011175871, y: -0.40626818, z: 0.000000018626451}
-      rotation: {x: 0.1277667, y: 4.6566126e-10, z: -0.0000000037252899, w: 0.99180424}
+      position: {x: -0, y: -0.40626815, z: -0.0000000018626451}
+      rotation: {x: 0.090630166, y: 4.6566134e-10, z: 1.0491538e-18, w: 0.99588466}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightFoot
       parentName: Lily M._RightLeg
-      position: {x: 0.000000011175871, y: -0.3864369, z: -0.000000044703484}
-      rotation: {x: -0.1057292, y: 0.033970073, z: -0.05849134, w: 0.99209183}
+      position: {x: 0.0000000037252903, y: -0.3864369, z: 0.0000000037252903}
+      rotation: {x: -0.08486278, y: 0.02048819, z: -0.06756728, w: 0.99388796}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightToeBase
       parentName: Lily M._RightFoot
-      position: {x: 9.313226e-10, y: -0.05774269, z: 0.13325249}
-      rotation: {x: -0.0005066124, y: 0.0000000012787494, z: 1.1641531e-10, w: 0.9999999}
+      position: {x: -4.656613e-10, y: -0.057742685, z: 0.1332524}
+      rotation: {x: -0.0008335519, y: -0.0000000016279956, z: 2.3283064e-10, w: 0.99999964}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RToeEnd
       parentName: Lily M._RightToeBase
@@ -591,48 +591,48 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._Spine
       parentName: Lily M._Hips
-      position: {x: -0.0000000018189894, y: 0.08172809, z: 0.0000000041909516}
-      rotation: {x: 0.006133971, y: 0.004056126, z: -0.0012186731, w: 0.9999722}
+      position: {x: -0.0000000019717845, y: 0.079316005, z: -0.000000003259629}
+      rotation: {x: 0.005212512, y: 0.0017255141, z: -0.0016533191, w: 0.99998355}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._Spine1
       parentName: Lily M._Spine
-      position: {x: 0.0000000052386895, y: 0.18940933, z: -0.0000000055879354}
-      rotation: {x: -0.026758268, y: 0.0038185704, z: -0.008630036, w: 0.9995974}
+      position: {x: -0.0000000019208528, y: 0.18699718, z: -0.000000011175871}
+      rotation: {x: -0.038471676, y: 0.0015039323, z: -0.0055619935, w: 0.9992431}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftShoulder
       parentName: Lily M._Spine1
-      position: {x: -0.0354754, y: 0.12435138, z: -0.0031411855}
-      rotation: {x: 0.007440261, y: -0.09326775, z: -0.07917169, w: 0.99246037}
+      position: {x: -0.035475384, y: 0.12435128, z: -0.0031411822}
+      rotation: {x: 0.008580815, y: -0.10118085, z: -0.08406657, w: 0.99127275}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftArm
       parentName: Lily M._LeftShoulder
-      position: {x: -0.14409028, y: -0.000000020489097, z: -0.000000007450581}
-      rotation: {x: -0.014803145, y: 0.08966037, z: 0.10823111, w: 0.98996365}
+      position: {x: -0.14409016, y: 0.00000004284084, z: -0.0000000018626451}
+      rotation: {x: -0.017337428, y: 0.098230064, z: 0.11849792, w: 0.9879315}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftForeArm
       parentName: Lily M._LeftArm
-      position: {x: -0.26256567, y: 0.000000014901161, z: -0.0000000055879354}
-      rotation: {x: 0.19503616, y: 0.032915328, z: -0.02550689, w: 0.9799117}
+      position: {x: -0.26256558, y: -0.000000044703484, z: 0.0000000121071935}
+      rotation: {x: 0.14866936, y: 0.032651834, z: -0.027543604, w: 0.9879639}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHand
       parentName: Lily M._LeftForeArm
-      position: {x: -0.21199666, y: 0.000000029802322, z: 0}
-      rotation: {x: -0.05900722, y: -0.21320485, z: -0.016711248, w: 0.97508085}
+      position: {x: -0.21199659, y: 0, z: 0.000000007450581}
+      rotation: {x: -0.077398494, y: -0.24106807, z: -0.029454203, w: 0.9669686}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandIndex1
       parentName: Lily M._LeftHand
-      position: {x: -0.095154606, y: -0.000000026077032, z: 0.037004583}
-      rotation: {x: 0.032996945, y: 0.07589811, z: 0.062006086, w: 0.9946386}
+      position: {x: -0.09515455, y: 0.000000013038516, z: 0.037004553}
+      rotation: {x: 0.013213838, y: 0.07634416, z: 0.06162004, w: 0.995088}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandIndex2
       parentName: Lily M._LeftHandIndex1
-      position: {x: -0.04219658, y: -0.0000000037252903, z: 0.000000003259629}
-      rotation: {x: -0.000000044703462, y: 0.00000029802308, z: 0.0335091, w: 0.99943846}
+      position: {x: -0.042196587, y: -0.000000018626451, z: -0.0000000023283064}
+      rotation: {x: -0.00000017881383, y: -0.000000931322, z: 0.033506587, w: 0.9994385}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandIndex3
       parentName: Lily M._LeftHandIndex2
-      position: {x: -0.021098303, y: 0.000000027939677, z: -0.000000004773028}
-      rotation: {x: 0.00000015756954, y: 0.0000016632525, z: 0.033509426, w: 0.9994384}
+      position: {x: -0.021098284, y: -0.000000011175871, z: 0.0000000016298145}
+      rotation: {x: -0.00000009502621, y: 0.0000004066811, z: 0.03350005, w: 0.99943876}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LIndex3End
       parentName: Lily M._LeftHandIndex3
@@ -641,18 +641,18 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandMiddle1
       parentName: Lily M._LeftHand
-      position: {x: -0.095154606, y: -0.000000018626451, z: 0.012264375}
-      rotation: {x: 0.03834823, y: 0.054643996, z: 0.05193966, w: 0.99641645}
+      position: {x: -0.09515457, y: -0.000000009313226, z: 0.012264368}
+      rotation: {x: 0.051261775, y: 0.0536338, z: 0.05002371, w: 0.99598867}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandMiddle2
       parentName: Lily M._LeftHandMiddle1
-      position: {x: -0.046416257, y: 0.000000018626451, z: 0}
-      rotation: {x: 0.00000005960461, y: 0.00000061094727, z: 0.033506624, w: 0.9994385}
+      position: {x: -0.046416204, y: 0.000000011175871, z: -0.0000000018626451}
+      rotation: {x: 0.00000012665983, y: 0.00000045821054, z: 0.03350483, w: 0.9994386}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandMiddle3
       parentName: Lily M._LeftHandMiddle2
-      position: {x: -0.025317928, y: 0.000000007450581, z: -0.000000007450581}
-      rotation: {x: 0.0000004035355, y: 0.00000030564073, z: 0.033509802, w: 0.99943846}
+      position: {x: -0.025317978, y: -0.000000011175871, z: 4.656613e-10}
+      rotation: {x: 0.0000000016160148, y: -0.00000071866157, z: 0.03351196, w: 0.99943835}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LMiddle3End
       parentName: Lily M._LeftHandMiddle3
@@ -661,18 +661,18 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandPinky1
       parentName: Lily M._LeftHand
-      position: {x: -0.08458188, y: -0.000000014901161, z: -0.037004583}
-      rotation: {x: 0.033179067, y: 0.05946365, z: 0.04237536, w: 0.99677867}
+      position: {x: -0.08458185, y: -0.000000026077032, z: -0.03700453}
+      rotation: {x: 0.09716571, y: 0.057073716, z: 0.037820708, w: 0.9929104}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandPinky2
       parentName: Lily M._LeftHandPinky1
-      position: {x: -0.033757277, y: 0.000000022351742, z: 0.000000010244548}
-      rotation: {x: -0.0000001564621, y: -0.00000082701393, z: 0.033505388, w: 0.9994385}
+      position: {x: -0.033757273, y: -0.000000013038516, z: 0.0000000055879354}
+      rotation: {x: -0.000000283122, y: -0.0000020414586, z: 0.03350731, w: 0.99943846}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandPinky3
       parentName: Lily M._LeftHandPinky2
-      position: {x: -0.016878653, y: 0.0000000037252903, z: 0.000000011874363}
-      rotation: {x: 0.00000008200224, y: 0.0000011768476, z: 0.033508744, w: 0.9994384}
+      position: {x: -0.01687865, y: -0.000000006519258, z: 0.000000004656613}
+      rotation: {x: -0.00000014981288, y: 0.0000039454085, z: 0.033509035, w: 0.99943846}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LPinky3End
       parentName: Lily M._LeftHandPinky3
@@ -681,18 +681,18 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandRing1
       parentName: Lily M._LeftHand
-      position: {x: -0.08986825, y: 0.0000000018626451, z: -0.012264377}
-      rotation: {x: -0.027378857, y: 0.05806467, z: 0.05139563, w: 0.996613}
+      position: {x: -0.08986817, y: -0.000000020489097, z: -0.0122643635}
+      rotation: {x: 0.008278366, y: 0.056406114, z: 0.04822237, w: 0.9972083}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandRing2
       parentName: Lily M._LeftHandRing1
-      position: {x: -0.042196568, y: 0.0000000037252903, z: -0.000000009313226}
-      rotation: {x: -0.00000014901153, y: -0.0000022090958, z: 0.033504676, w: 0.9994386}
+      position: {x: -0.04219658, y: 0.000000007450581, z: 0.0000000013969839}
+      rotation: {x: 0.00000015832477, y: 0.00000025704492, z: 0.033508964, w: 0.9994384}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandRing3
       parentName: Lily M._LeftHandRing2
-      position: {x: -0.021098299, y: 0.000000024214387, z: 0.0000000044237822}
-      rotation: {x: -0.00000038887197, y: 0.0000005919984, z: 0.03350702, w: 0.9994385}
+      position: {x: -0.021098267, y: -0.0000000037252903, z: -9.313226e-10}
+      rotation: {x: 0.00000013446709, y: 0.0000007352381, z: 0.03350522, w: 0.9994386}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LRing3End
       parentName: Lily M._LeftHandRing3
@@ -701,17 +701,17 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandThumb1
       parentName: Lily M._LeftHand
-      position: {x: -0.02326001, y: -0.02643181, z: 0.037004583}
-      rotation: {x: 0.30307862, y: 0.3131427, z: -0.33052284, w: 0.8371618}
+      position: {x: -0.023260005, y: -0.026431853, z: 0.037004553}
+      rotation: {x: 0.32790673, y: 0.34410727, z: -0.28600243, w: 0.83202773}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandThumb2
       parentName: Lily M._LeftHandThumb1
-      position: {x: -0.02804192, y: 0.0000000088475645, z: 0.0000000037252903}
-      rotation: {x: 0.05099999, y: -0.03270761, z: -0.0068950453, w: 0.99813914}
+      position: {x: -0.028041894, y: 0.000000034924597, z: -0.0000000055879354}
+      rotation: {x: 0.050999735, y: -0.03271152, z: -0.006900598, w: 0.998139}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LeftHandThumb3
       parentName: Lily M._LeftHandThumb2
-      position: {x: -0.023967657, y: -0.0000000037252903, z: 0.000000014901161}
+      position: {x: -0.023967661, y: -0.000000031664968, z: 0.000000016763806}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._LThumb3End
@@ -721,13 +721,13 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._Neck
       parentName: Lily M._Spine1
-      position: {x: 0.0000000013969839, y: 0.19357206, z: 9.313226e-10}
-      rotation: {x: -0.0582646, y: 0.027604103, z: 0.014604349, w: 0.9978126}
+      position: {x: 0.0000000018626451, y: 0.19604364, z: 0.000000002561137}
+      rotation: {x: -0.055143327, y: 0.030533902, z: 0.019612905, w: 0.99781877}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._Head
       parentName: Lily M._Neck
-      position: {x: -1.1641532e-10, y: 0.13297334, z: 0.017766992}
-      rotation: {x: -0.024152879, y: 0.026885806, z: 0.0067805722, w: 0.99932367}
+      position: {x: -0.000000002561137, y: 0.13544495, z: 0.017766966}
+      rotation: {x: -0.014938439, y: 0.029575212, z: 0.010153622, w: 0.99939936}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._HeadEnd
       parentName: Lily M._Head
@@ -736,38 +736,38 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightShoulder
       parentName: Lily M._Spine1
-      position: {x: 0.03547541, y: 0.12435131, z: -0.0031411853}
-      rotation: {x: 0.0040101036, y: 0.111402154, z: 0.035749134, w: 0.9931241}
+      position: {x: 0.035475384, y: 0.12435135, z: -0.0031411895}
+      rotation: {x: 0.0057751345, y: 0.1102418, z: 0.05199459, w: 0.99252707}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightArm
       parentName: Lily M._RightShoulder
-      position: {x: 0.14409032, y: -0.000000004656613, z: 0.0000000037252903}
-      rotation: {x: -0.067130536, y: -0.11411245, z: -0.062640905, w: 0.98921585}
+      position: {x: 0.14409022, y: 0.000000059604645, z: -0.000000014901161}
+      rotation: {x: -0.0680761, y: -0.107423164, z: -0.08233514, w: 0.9884568}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightForeArm
       parentName: Lily M._RightArm
-      position: {x: 0.26256567, y: 0.000000059604645, z: 0.000000007450581}
-      rotation: {x: 0.1538349, y: -0.029772118, z: 0.02341756, w: 0.98737025}
+      position: {x: 0.2625656, y: -0.000000014901161, z: -0.0000000027939677}
+      rotation: {x: 0.17304333, y: -0.029343966, z: 0.030857384, w: 0.98399335}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHand
       parentName: Lily M._RightForeArm
-      position: {x: 0.2119967, y: 0.000000037252903, z: 0.000000029802322}
-      rotation: {x: 0.040913325, y: 0.19835186, z: 0.041090846, w: 0.9784142}
+      position: {x: 0.21199656, y: -0.000000014901161, z: 0.000000022351742}
+      rotation: {x: -0.027562797, y: 0.23882195, z: 0.03590812, w: 0.9700078}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandIndex1
       parentName: Lily M._RightHand
-      position: {x: 0.095154606, y: 0.0000000037252903, z: 0.03700458}
-      rotation: {x: 0.09945671, y: -0.08131364, z: -0.06450187, w: 0.98961407}
+      position: {x: 0.09515455, y: 0.0000000055879354, z: 0.037004545}
+      rotation: {x: 0.122532174, y: -0.09614054, z: -0.06223435, w: 0.98583454}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandIndex2
       parentName: Lily M._RightHandIndex1
-      position: {x: 0.04219655, y: 0.0000000018626451, z: 0.0000000023283064}
-      rotation: {x: 0.00000009685751, y: 0.00000043213353, z: -0.033505253, w: 0.9994386}
+      position: {x: 0.042196553, y: 0.000000018626451, z: -0.000000008381903}
+      rotation: {x: -0.00000007450579, y: 0.0000008419154, z: -0.033511594, w: 0.99943835}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandIndex3
       parentName: Lily M._RightHandIndex2
-      position: {x: 0.021098308, y: -0.000000024214387, z: 0.000000012340024}
-      rotation: {x: 0.00000028918316, y: -0.00000018713293, z: -0.033498023, w: 0.9994388}
+      position: {x: 0.021098264, y: 0.000000026077032, z: -0.0000000088475645}
+      rotation: {x: 0.000000085698865, y: 0.0000009525992, z: -0.03350543, w: 0.9994385}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RIndex3End
       parentName: Lily M._RightHandIndex3
@@ -776,18 +776,18 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandMiddle1
       parentName: Lily M._RightHand
-      position: {x: 0.095154606, y: 0.0000000018626451, z: 0.012264373}
-      rotation: {x: 0.063272476, y: -0.04633081, z: -0.060419224, w: 0.9950877}
+      position: {x: 0.09515454, y: 0.000000006519258, z: 0.0122643635}
+      rotation: {x: 0.074031614, y: -0.034236282, z: -0.062342938, w: 0.9947163}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandMiddle2
       parentName: Lily M._RightHandMiddle1
-      position: {x: 0.046416253, y: -0.000000014901161, z: 0.0000000055879354}
-      rotation: {x: -0.00000019371502, y: 0.0000018402927, z: -0.033507466, w: 0.99943846}
+      position: {x: 0.04641624, y: -0.000000029802322, z: 0.000000009313226}
+      rotation: {x: -0.00000016391273, y: -0.00000018253918, z: -0.033507437, w: 0.9994385}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandMiddle3
       parentName: Lily M._RightHandMiddle2
-      position: {x: 0.025317963, y: -0.000000007450581, z: 0.0000000018626451}
-      rotation: {x: -0.00000025085555, y: -0.000000019518659, z: -0.0335079, w: 0.9994385}
+      position: {x: 0.025317928, y: 0.000000018626451, z: -0.0000000027939677}
+      rotation: {x: 0.0000000126655495, y: 0.00000032637192, z: -0.03350488, w: 0.9994386}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RMiddle3End
       parentName: Lily M._RightHandMiddle3
@@ -796,18 +796,18 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandPinky1
       parentName: Lily M._RightHand
-      position: {x: 0.08458183, y: -0.000000016298145, z: -0.037004575}
-      rotation: {x: -0.06698162, y: -0.04789054, z: -0.060570765, w: 0.9947618}
+      position: {x: 0.08458179, y: 0.00000005448237, z: -0.037004568}
+      rotation: {x: -0.093692034, y: -0.029450212, z: -0.06206579, w: 0.99322826}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandPinky2
       parentName: Lily M._RightHandPinky1
-      position: {x: 0.033757284, y: -0.000000026077032, z: 0.000000004656613}
-      rotation: {x: 0.000000029802312, y: -0.000000003725289, z: -0.033509485, w: 0.9994384}
+      position: {x: 0.03375721, y: 0.000000011175871, z: -0.0000000037252903}
+      rotation: {x: 0.00000014156096, y: 0.00000051967777, z: -0.033504754, w: 0.99943864}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandPinky3
       parentName: Lily M._RightHandPinky2
-      position: {x: 0.016878653, y: -0.000000009313226, z: 0.0000000027939677}
-      rotation: {x: -0.00000023286647, y: -0.00000017281374, z: -0.033508748, w: 0.9994384}
+      position: {x: 0.016878584, y: -0.0000000037252903, z: -0.0000000121071935}
+      rotation: {x: -0.000000012501921, y: -0.0000011063145, z: -0.033509236, w: 0.99943846}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RPinky3End
       parentName: Lily M._RightHandPinky3
@@ -816,18 +816,18 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandRing1
       parentName: Lily M._RightHand
-      position: {x: 0.089868225, y: 0.000000008381903, z: -0.012264371}
-      rotation: {x: -0.050430223, y: -0.047624182, z: -0.06403455, w: 0.9955342}
+      position: {x: 0.08986817, y: -0.000000014901161, z: -0.012264367}
+      rotation: {x: -0.054688506, y: -0.030543339, z: -0.06512516, w: 0.99590915}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandRing2
       parentName: Lily M._RightHandRing1
-      position: {x: 0.042196624, y: 0.0000000037252903, z: 0.000000004656613}
-      rotation: {x: -0.000000104308114, y: 0.0000030323858, z: -0.033506744, w: 0.9994385}
+      position: {x: 0.042196594, y: -0.000000048428774, z: -0.000000006519258}
+      rotation: {x: 0.00000010803339, y: -0.00000077299757, z: -0.03350671, w: 0.9994386}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandRing3
       parentName: Lily M._RightHandRing2
-      position: {x: 0.021098284, y: 0, z: -0.0000000027939677}
-      rotation: {x: -0.00000012688184, y: -0.000000744529, z: -0.03351187, w: 0.9994384}
+      position: {x: 0.021098303, y: 0, z: 0}
+      rotation: {x: 0.00000011518643, y: 0.0000031308048, z: -0.033512264, w: 0.9994383}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RRing3End
       parentName: Lily M._RightHandRing3
@@ -836,17 +836,17 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandThumb1
       parentName: Lily M._RightHand
-      position: {x: 0.023260025, y: -0.026431853, z: 0.037004583}
-      rotation: {x: 0.3845363, y: -0.26615116, z: 0.33436546, w: 0.8182268}
+      position: {x: 0.023259982, y: -0.026431879, z: 0.037004557}
+      rotation: {x: 0.3835798, y: -0.30377412, z: 0.30170405, w: 0.8182681}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandThumb2
       parentName: Lily M._RightHandThumb1
-      position: {x: 0.028041912, y: -0.000000022351742, z: 0.000000017695129}
-      rotation: {x: 0.05099963, y: 0.0327012, z: 0.006893469, w: 0.9981394}
+      position: {x: 0.028041866, y: -0.0000000121071935, z: 0.000000028871}
+      rotation: {x: 0.050999165, y: 0.0327096, z: 0.0068989354, w: 0.99813914}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RightHandThumb3
       parentName: Lily M._RightHandThumb2
-      position: {x: 0.02396765, y: -0.0000000018626451, z: 0.0000000023283064}
+      position: {x: 0.023967642, y: -0.000000013038516, z: 0.0000000088475645}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Lily M._RThumb3End
