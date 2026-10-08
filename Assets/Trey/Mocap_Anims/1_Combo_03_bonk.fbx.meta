@@ -35,8 +35,8 @@ ModelImporter:
       name: Character1_Anim_Combo03
       takeName: Run_008_FBX
       internalID: 5998385564149376330
-      firstFrame: 231
-      lastFrame: 365
+      firstFrame: 249
+      lastFrame: 340
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
