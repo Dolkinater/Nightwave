@@ -44,13 +44,11 @@ public class WalkerAttackState : EnemyBaseState
         float attackEndTime =
             recoveryStartTime + RecoveryDuration;
 
-        // Turn toward the player until the punch begins.
         if (previousTime < punchStartTime)
         {
             walker.FacePlayer();
         }
 
-        // Show the marker only near the end of the wind-up.
         float cueStartTime = Mathf.Max(
             0f,
             punchStartTime - ParryCueDuration
@@ -62,7 +60,6 @@ public class WalkerAttackState : EnemyBaseState
 
         walker.SetParryCue(showCue);
 
-        // Calculate how much of this frame belongs to Punch.
         float punchStep = GetPhaseStep(
             previousTime,
             elapsedTime,
@@ -82,7 +79,6 @@ public class WalkerAttackState : EnemyBaseState
             );
         }
 
-        // Calculate how much of this frame belongs to Recovery.
         float recoveryStep = GetPhaseStep(
             previousTime,
             elapsedTime,
@@ -104,7 +100,6 @@ public class WalkerAttackState : EnemyBaseState
                 RecoveryDuration
             );
 
-            // Average speed over this part of the recovery.
             float averageProgress =
                 (recoveryTimeBefore + recoveryTimeAfter) /
                 (2f * RecoveryDuration);
@@ -141,7 +136,6 @@ public class WalkerAttackState : EnemyBaseState
     {
         punchStarted = true;
 
-        // Lock direction and speed at the start of the punch.
         punchDirection = walker.transform.forward;
         punchDirection.y = 0f;
         punchDirection.Normalize();

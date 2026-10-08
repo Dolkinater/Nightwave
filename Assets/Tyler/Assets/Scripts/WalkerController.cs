@@ -91,7 +91,6 @@ public class WalkerController : EnemyStateMachine
             return;
         }
 
-        // Detection still updates if navigation is unavailable.
         UpdatePlayerDetection();
 
         if (!navigationReady)
@@ -105,7 +104,6 @@ public class WalkerController : EnemyStateMachine
         Vector3 toPlayer =
             player.transform.position - transform.position;
 
-        // Measure distance across the ground.
         toPlayer.y = 0f;
         distanceToPlayer = toPlayer.magnitude;
 
@@ -151,8 +149,7 @@ public class WalkerController : EnemyStateMachine
     {
         agent.speed = movementSpeed;
 
-        // Allow the agent to enter attack range before it
-        // finishes braking. Our distance check stops it there.
+
         agent.stoppingDistance = attackRange * 0.9f;
 
         agent.updateRotation = true;
@@ -170,13 +167,11 @@ public class WalkerController : EnemyStateMachine
 
         awayFromPlayer.y = 0f;
 
-        // Provide a direction even if both positions overlap.
         if (awayFromPlayer.sqrMagnitude < 0.0001f)
             awayFromPlayer = -transform.forward;
 
         awayFromPlayer.Normalize();
 
-        // Avoid stepping beyond the backing-off threshold.
         float movementThisFrame = Mathf.Min(
             BackingOffSpeed * Time.deltaTime,
             backingOffRange - distanceToPlayer
@@ -185,7 +180,6 @@ public class WalkerController : EnemyStateMachine
         Vector3 displacement =
             awayFromPlayer * movementThisFrame;
 
-        // Stop at the edge of the walkable NavMesh.
         if (agent.Raycast(
             agent.nextPosition + displacement,
             out NavMeshHit hit))

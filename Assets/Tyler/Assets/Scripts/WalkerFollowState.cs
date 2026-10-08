@@ -49,7 +49,6 @@ public class WalkerFollowState : EnemyBaseState
 
         walker.UpdateFollowMovement();
 
-        // Count time only while the player is in attack range.
         if (walker.DistanceToPlayer > walker.attackRange)
         {
             attackCheckTimer = 0f;
