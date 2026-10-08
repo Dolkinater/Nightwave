@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -52,12 +53,12 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
-        
+        Health.OnUnitDeathEvent += OnPlayerDeath;
     }
     
     void OnDestroy()
     {
-       
+        Health.OnUnitDeathEvent -= OnPlayerDeath;
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -74,6 +75,15 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void OnPlayerDeath(Health.UnitAffiliation unitAffiliation, GameObject unit )
+    {
+        if (unitAffiliation == Health.UnitAffiliation.player)
+        {
+            OnLevelQuit();
+        }
         
     }
     
@@ -101,6 +111,8 @@ public class LevelManager : MonoBehaviour
         // exiting the user out of the level and returning them to level selection
         // clearing any level-specific values that persist between scenes (i.e. values for score, player position, etc.)
     }
+
+   
 
    
 }

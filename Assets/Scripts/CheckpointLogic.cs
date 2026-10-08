@@ -20,7 +20,7 @@ public class CheckpointLogic : MonoBehaviour
         temp_defeatedEnemies.Add(enemy);
     }
     static List<GameObject> permanent_defeatedEnemies; // once players reach a checkpoint, this list is made equal to temp_defeatedEnemies; when respawning, enemies found in this list will be disabled
-
+    
     void OnRespawn()
     {
         player.transform.position = storedPlayerPosition;

@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
     public delegate void ModifyHealth(int newHealthValue, int maxHealthValue, int healthDelta);
     public static ModifyHealth OnHealthChangeEvent;
 
-    public delegate void UnitDeath(UnitAffiliation unitAffiliation);
+    public delegate void UnitDeath(UnitAffiliation unitAffiliation, GameObject unit);
     public static UnitDeath OnUnitDeathEvent;
 
     #endregion
@@ -70,11 +70,12 @@ public class Health : MonoBehaviour
         
         if (currentHealthPoints <= 0)
         {
-            OnUnitDeathEvent?.Invoke(thisUnitType); // calls an event to functions with UnitAffiliation as a paramater, and thisUnitType defines the parameter's value
+            OnUnitDeathEvent?.Invoke(thisUnitType, this.gameObject); // calls an event to functions with UnitAffiliation as a paramater, and thisUnitType defines the parameter's value
 
                 // examples of subscribed functions
                         // if (thisUnitType == UnitAffiliation.player) { reload the level from the beginning; }
                         // if (thisUnitType == UnitAffiliation.enemy) { increase the combo kill counter by one; }
+            
         }
     }
 

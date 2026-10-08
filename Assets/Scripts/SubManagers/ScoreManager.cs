@@ -50,12 +50,14 @@ public class ScoreManager : MonoBehaviour
         Health.OnHealthChangeEvent += OnDamagedCombo;
         CheckpointLogic.OnCheckpointReached += StoreScore;
         //Enemy event subscribe
+        Health.OnUnitDeathEvent += UpdateScore;
     }
     
     void OnDestroy()
     {
         Health.OnHealthChangeEvent -= OnDamagedCombo;
         CheckpointLogic.OnCheckpointReached -= StoreScore;
+        Health.OnUnitDeathEvent -= UpdateScore;
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -172,6 +174,15 @@ public class ScoreManager : MonoBehaviour
     private void StoreScore()
     {
         CheckpointLogic.storedScore = totalPoints;
+    }
+
+    void UpdateScore(Health.UnitAffiliation unitAffiliation, GameObject unit)
+    {
+        
+        if (unitAffiliation == Health.UnitAffiliation.enemy)
+        {
+            //Check the scoreDistributor and add its value to the score
+        }
     }
     
 
