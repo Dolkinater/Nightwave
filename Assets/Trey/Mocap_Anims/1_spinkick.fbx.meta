@@ -1,0 +1,880 @@
+fileFormatVersion: 2
+guid: bc4d6bb4f395be144af7b66225aca9e1
+ModelImporter:
+  serializedVersion: 24600
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+    searchTexturesGlobally: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Run_013_FBX' has import animation warnings that might lower retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Lily M._Hips' has translation animation that will be discarded.\n\t'Lily M._Hips' is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Lily M._Spine' has translation animation that will be discarded.\n\t'Lily M._Spine1' has translation animation that will be discarded.\n\t'Lily M._Spine1' is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Lily M._Neck' has translation animation that will be discarded.\n\t'Lily M._Head' has translation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Character1_Spinkick
+      takeName: Run_013_FBX
+      internalID: -1225046909598923961
+      firstFrame: 269
+      lastFrame: 456
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000u
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    preBakeConvexCollisionMesh: 0
+    preBakeTriangleCollisionMesh: 0
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    importUVs: -1
+    importVertexColors: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+    calculateBlendshapeNormalsDeltaFromImportedNormals: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Lily M._Root
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lily M._RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: 1_spinkick(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M. Mesh
+      parentName: 1_spinkick(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._Root
+      parentName: 1_spinkick(Clone)
+      position: {x: -0.072422616, y: 0, z: 0.21265694}
+      rotation: {x: -0, y: -0.99995595, z: -0, w: 0.00939029}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._Hips
+      parentName: Lily M._Root
+      position: {x: -0.07640348, y: 0.875297, z: 0.21125932}
+      rotation: {x: 0.00396103, y: 0.998635, z: -0.050136182, w: 0.014103911}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftUpLeg
+      parentName: Lily M._Hips
+      position: {x: -0.088834904, y: 0.000000011641532, z: 0.0000000027939677}
+      rotation: {x: -0.11076157, y: 0.025104437, z: -0.06719926, w: 0.99125475}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftLeg
+      parentName: Lily M._LeftUpLeg
+      position: {x: 0.000000014901161, y: -0.40626815, z: -0.000000011175871}
+      rotation: {x: 0.20644511, y: 6.984921e-10, z: -3.6805757e-18, w: 0.9784582}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftFoot
+      parentName: Lily M._LeftLeg
+      position: {x: 0.000000011175871, y: -0.3864369, z: 0.000000022351742}
+      rotation: {x: -0.12996003, y: -0.073585875, z: 0.058561847, w: 0.98704916}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftToeBase
+      parentName: Lily M._LeftFoot
+      position: {x: 0.0000000018626451, y: -0.057742685, z: 0.13325235}
+      rotation: {x: 0.011618072, y: -0.0000000027212081, z: 2.5132828e-18, w: 0.9999325}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LToeEnd
+      parentName: Lily M._LeftToeBase
+      position: {x: -0, y: 0, z: 0.03553396}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightUpLeg
+      parentName: Lily M._Hips
+      position: {x: 0.088834904, y: -0.000000011641532, z: -0.0000000027939677}
+      rotation: {x: -0.07461811, y: -0.006444934, z: 0.081083104, w: 0.99388945}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightLeg
+      parentName: Lily M._RightUpLeg
+      position: {x: -0.000000014901161, y: -0.40626818, z: -0.0000000037252903}
+      rotation: {x: 0.12528789, y: 4.656613e-10, z: -0.000000007450581, w: 0.99212044}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightFoot
+      parentName: Lily M._RightLeg
+      position: {x: -0.000000022351742, y: -0.3864369, z: -0.000000007450581}
+      rotation: {x: -0.09229738, y: 0.067369044, z: -0.08012202, w: 0.99021363}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightToeBase
+      parentName: Lily M._RightFoot
+      position: {x: -0.000000006519258, y: -0.057742685, z: 0.13325234}
+      rotation: {x: 0.0068253246, y: 0.00000000518412, z: -0.000000001862645, w: 0.9999767}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RToeEnd
+      parentName: Lily M._RightToeBase
+      position: {x: -0, y: 0, z: 0.03553396}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._Spine
+      parentName: Lily M._Hips
+      position: {x: -0.0000000021536835, y: 0.081728116, z: -0.000000008381903}
+      rotation: {x: 0.0020628425, y: 0.0015158957, z: -0.0034447927, w: 0.9999908}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._Spine1
+      parentName: Lily M._Spine
+      position: {x: 0.00000000410364, y: 0.18940929, z: -0.000000007450581}
+      rotation: {x: -0.02084216, y: 0.001346186, z: -0.007810041, w: 0.9997514}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftShoulder
+      parentName: Lily M._Spine1
+      position: {x: -0.035475392, y: 0.12435128, z: -0.0031411776}
+      rotation: {x: 0.0047740955, y: -0.08991008, z: -0.052808482, w: 0.9945374}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftArm
+      parentName: Lily M._LeftShoulder
+      position: {x: -0.14409022, y: 0.000000055879354, z: -0.000000007450581}
+      rotation: {x: -0.005543294, y: 0.093751885, z: 0.083951674, w: 0.9920343}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftForeArm
+      parentName: Lily M._LeftArm
+      position: {x: -0.26256564, y: 0, z: -9.313226e-10}
+      rotation: {x: 0.22086725, y: 0.027039686, z: -0.025621697, w: 0.9745923}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHand
+      parentName: Lily M._LeftForeArm
+      position: {x: -0.21199661, y: -0.000000014901161, z: 0}
+      rotation: {x: -0.08198715, y: -0.14862578, z: -0.036033772, w: 0.9848299}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandIndex1
+      parentName: Lily M._LeftHand
+      position: {x: -0.09515457, y: 0.0000000037252903, z: 0.037004553}
+      rotation: {x: 0.06309483, y: 0.08331671, z: 0.06246365, w: 0.99256015}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandIndex2
+      parentName: Lily M._LeftHandIndex1
+      position: {x: -0.042196568, y: 0.000000014901161, z: -0.000000011175871}
+      rotation: {x: -0.00000016018741, y: -0.00000030547366, z: 0.033505805, w: 0.9994385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandIndex3
+      parentName: Lily M._LeftHandIndex2
+      position: {x: -0.021098264, y: -0.000000026077032, z: 0.000000010244548}
+      rotation: {x: -0.000000139152, y: -0.000002229852, z: 0.03350508, w: 0.99943864}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LIndex3End
+      parentName: Lily M._LeftHandIndex3
+      position: {x: -0.018742654, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandMiddle1
+      parentName: Lily M._LeftHand
+      position: {x: -0.095154576, y: 0.0000000055879354, z: 0.012264364}
+      rotation: {x: 0.03608132, y: 0.05451781, z: 0.054518573, w: 0.99637026}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandMiddle2
+      parentName: Lily M._LeftHandMiddle1
+      position: {x: -0.046416223, y: 0.000000022351742, z: -0.000000007450581}
+      rotation: {x: 0.00000018253918, y: 0.0000010728834, z: 0.033506684, w: 0.9994386}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandMiddle3
+      parentName: Lily M._LeftHandMiddle2
+      position: {x: -0.025317969, y: 0.000000029802322, z: 0.0000000018626451}
+      rotation: {x: 0.0000003086221, y: 0.0000017146994, z: 0.033512227, w: 0.9994383}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LMiddle3End
+      parentName: Lily M._LeftHandMiddle3
+      position: {x: -0.022491131, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandPinky1
+      parentName: Lily M._LeftHand
+      position: {x: -0.08458187, y: -0.000000009313226, z: -0.037004545}
+      rotation: {x: 0.012716287, y: 0.06018298, z: 0.04381975, w: 0.99714404}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandPinky2
+      parentName: Lily M._LeftHandPinky1
+      position: {x: -0.03375727, y: -0.000000013038516, z: -0.0000000055879354}
+      rotation: {x: -0.00000005774197, y: 0.000000748783, z: 0.033508077, w: 0.9994385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandPinky3
+      parentName: Lily M._LeftHandPinky2
+      position: {x: -0.016878612, y: 0.0000000018626451, z: 4.656613e-10}
+      rotation: {x: 0.00000010136703, y: -0.0000028973614, z: 0.03350737, w: 0.99943846}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LPinky3End
+      parentName: Lily M._LeftHandPinky3
+      position: {x: -0.014994087, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandRing1
+      parentName: Lily M._LeftHand
+      position: {x: -0.08986818, y: -0.0000000055879354, z: -0.012264364}
+      rotation: {x: -0.041680094, y: 0.058193594, z: 0.053595625, w: 0.99599385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandRing2
+      parentName: Lily M._LeftHandRing1
+      position: {x: -0.04219657, y: 0.000000011175871, z: 0.0000000037252903}
+      rotation: {x: 0.00000016763798, y: 0.00000073388185, z: 0.033507492, w: 0.9994385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandRing3
+      parentName: Lily M._LeftHandRing2
+      position: {x: -0.02109831, y: 0.000000011175871, z: 0.0000000037252903}
+      rotation: {x: 0.0000000133107045, y: 0.00000057214794, z: 0.033504836, w: 0.99943864}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LRing3End
+      parentName: Lily M._LeftHandRing3
+      position: {x: -0.018742654, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandThumb1
+      parentName: Lily M._LeftHand
+      position: {x: -0.023260005, y: -0.026431838, z: 0.037004553}
+      rotation: {x: 0.29200676, y: 0.3304136, z: -0.3325961, w: 0.83362985}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandThumb2
+      parentName: Lily M._LeftHandThumb1
+      position: {x: -0.02804191, y: -0.000000023283064, z: 0.0000000037252903}
+      rotation: {x: 0.050999563, y: -0.032706548, z: -0.0068996674, w: 0.9981392}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LeftHandThumb3
+      parentName: Lily M._LeftHandThumb2
+      position: {x: -0.023967657, y: 0.000000018626451, z: -0.000000007450581}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._LThumb3End
+      parentName: Lily M._LeftHandThumb3
+      position: {x: -0.021291682, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._Neck
+      parentName: Lily M._Spine1
+      position: {x: 0.000000004656613, y: 0.19316593, z: 0.000000006519258}
+      rotation: {x: -0.083842754, y: 0.057674248, z: 0.013431784, w: 0.9947179}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._Head
+      parentName: Lily M._Neck
+      position: {x: -0.0000000016298145, y: 0.13256721, z: 0.017766971}
+      rotation: {x: -0.02247475, y: 0.056585293, z: 0.009331366, w: 0.9981012}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._HeadEnd
+      parentName: Lily M._Head
+      position: {x: -0, y: 0.17766981, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightShoulder
+      parentName: Lily M._Spine1
+      position: {x: 0.03547539, y: 0.124351345, z: -0.0031411895}
+      rotation: {x: 0.0020768566, y: 0.10227764, z: 0.020195317, w: 0.99454874}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightArm
+      parentName: Lily M._RightShoulder
+      position: {x: 0.14409019, y: 0.000000044703484, z: -0.000000011175871}
+      rotation: {x: -0.073293254, y: -0.09794774, z: -0.044127617, w: 0.9915075}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightForeArm
+      parentName: Lily M._RightArm
+      position: {x: 0.2625656, y: 0, z: 0.000000004656613}
+      rotation: {x: 0.22373788, y: -0.030073341, z: 0.02822204, w: 0.9737764}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHand
+      parentName: Lily M._RightForeArm
+      position: {x: 0.21199661, y: 0, z: -0.000000022351742}
+      rotation: {x: 0.016793322, y: 0.17245395, z: 0.03450928, w: 0.98426974}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandIndex1
+      parentName: Lily M._RightHand
+      position: {x: 0.09515455, y: 0.0000000018626451, z: 0.037004553}
+      rotation: {x: 0.11217612, y: -0.08244989, z: -0.06553688, w: 0.9880909}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandIndex2
+      parentName: Lily M._RightHandIndex1
+      position: {x: 0.042196568, y: -0.000000024214387, z: 0.000000010244548}
+      rotation: {x: -0.00000009685748, y: -0.00000042468278, z: -0.033510134, w: 0.99943846}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandIndex3
+      parentName: Lily M._RightHandIndex2
+      position: {x: 0.021098308, y: 0.000000007450581, z: -0.0000000044237822}
+      rotation: {x: -0.00000010242982, y: -0.0000015957447, z: -0.033508684, w: 0.99943846}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RIndex3End
+      parentName: Lily M._RightHandIndex3
+      position: {x: 0.018742654, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandMiddle1
+      parentName: Lily M._RightHand
+      position: {x: 0.09515455, y: -0.000000006519258, z: 0.012264371}
+      rotation: {x: 0.06563914, y: -0.044298954, z: -0.061689306, w: 0.99494904}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandMiddle2
+      parentName: Lily M._RightHandMiddle1
+      position: {x: 0.046416253, y: 0.000000007450581, z: -0.0000000018626451}
+      rotation: {x: -0.000000052154046, y: 0.0000017881387, z: -0.033504426, w: 0.99943864}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandMiddle3
+      parentName: Lily M._RightHandMiddle2
+      position: {x: 0.025317974, y: -0.000000013038516, z: 0.0000000121071935}
+      rotation: {x: 0.000000031469398, y: -0.00000004092087, z: -0.0335054, w: 0.9994385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RMiddle3End
+      parentName: Lily M._RightHandMiddle3
+      position: {x: 0.022491131, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandPinky1
+      parentName: Lily M._RightHand
+      position: {x: 0.08458183, y: -0.000000009778887, z: -0.037004545}
+      rotation: {x: -0.08205055, y: -0.046275117, z: -0.06314629, w: 0.99354863}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandPinky2
+      parentName: Lily M._RightHandPinky1
+      position: {x: 0.033757273, y: -0.000000009313226, z: 9.313226e-10}
+      rotation: {x: 0.000000037252878, y: 0.0000010617069, z: -0.033506963, w: 0.9994385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandPinky3
+      parentName: Lily M._RightHandPinky2
+      position: {x: 0.016878653, y: 0.0000000037252903, z: 9.313226e-10}
+      rotation: {x: -0.00000012654624, y: -0.0000029457985, z: -0.033501998, w: 0.9994387}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RPinky3End
+      parentName: Lily M._RightHandPinky3
+      position: {x: 0.014994087, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandRing1
+      parentName: Lily M._RightHand
+      position: {x: 0.08986817, y: -0.000000024214387, z: -0.012264351}
+      rotation: {x: -0.0556274, y: -0.04574573, z: -0.065874234, w: 0.9952254}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandRing2
+      parentName: Lily M._RightHandRing1
+      position: {x: 0.042196568, y: 0.000000022351742, z: 9.313226e-10}
+      rotation: {x: -0.000000022351726, y: -0.00000030919887, z: -0.033508744, w: 0.9994384}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandRing3
+      parentName: Lily M._RightHandRing2
+      position: {x: 0.021098284, y: -0.000000022351742, z: 0.000000006519258}
+      rotation: {x: 0.000000026997142, y: -0.00000078126925, z: -0.033508148, w: 0.9994385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RRing3End
+      parentName: Lily M._RightHandRing3
+      position: {x: 0.018742654, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandThumb1
+      parentName: Lily M._RightHand
+      position: {x: 0.02326001, y: -0.026431838, z: 0.03700456}
+      rotation: {x: 0.36224082, y: -0.24387744, z: 0.35222632, w: 0.8277934}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandThumb2
+      parentName: Lily M._RightHandThumb1
+      position: {x: 0.028041907, y: -0.000000017695129, z: 0.000000013038516}
+      rotation: {x: 0.050999288, y: 0.032707915, z: 0.006893274, w: 0.9981392}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RightHandThumb3
+      parentName: Lily M._RightHandThumb2
+      position: {x: 0.023967683, y: 0.000000007450581, z: -0.000000020489097}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lily M._RThumb3End
+      parentName: Lily M._RightHandThumb3
+      position: {x: 0.021291682, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 0
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
