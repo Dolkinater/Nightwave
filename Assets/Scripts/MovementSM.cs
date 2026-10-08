@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovementSM : StateMachine
+public class MovementSM : StateMachine_Deprecated
 {
     [HideInInspector]
     public Idle idleState;

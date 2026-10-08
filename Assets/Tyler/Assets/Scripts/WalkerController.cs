@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class WalkerController : EnemyStateMachine
+public class WalkerController : EnemyStateMachine_Deprecated
 {
     [Header("References")]
     public FirstPersonPlayer player;

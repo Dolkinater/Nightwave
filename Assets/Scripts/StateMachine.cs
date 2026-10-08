@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StateMachine : MonoBehaviour
+public class StateMachine_Deprecated : MonoBehaviour
 {
     public BaseState currentState;
 
