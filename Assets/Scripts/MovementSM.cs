@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 using UnityEngine;
 
 public class MovementSM : StateMachine
@@ -21,3 +22,31 @@ public class MovementSM : StateMachine
         return idleState;
     }
 }
+=======
+using UnityEngine;
+
+public class MovementSM : StateMachine
+{
+    [HideInInspector]
+    public Idle idleState;
+    [HideInInspector]
+    public Moving movingState;
+    [HideInInspector]
+    public Jumping jumpingState;
+    [HideInInspector]
+    public Sliding slidingState;
+    public CharacterController characterController;
+
+    private void Awake()
+    {
+        idleState = new Idle(this);
+        movingState = new Moving(this);
+        jumpingState = new Jumping(this);
+        slidingState = new Sliding(this);
+    }
+    protected override BaseState GetInitialState()
+    {
+        return idleState;
+    }
+}
+>>>>>>> Stashed changes

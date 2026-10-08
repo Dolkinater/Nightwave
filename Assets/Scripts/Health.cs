@@ -51,7 +51,7 @@ public class Health : MonoBehaviour
     {
         if (value < 0)
         {
-            if (UnitIsDamageable())
+            if (!UnitIsDamageable())
             {
                 return; // if this unit is unable to take damage currently and the health is attempted to be changed by a negative amount, end this function
             }
