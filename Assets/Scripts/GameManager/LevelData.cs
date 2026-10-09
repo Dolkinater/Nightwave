@@ -17,7 +17,8 @@ public class LevelData : ScriptableObject
     // Needs to be a list of enemies and types tbh
     public List<GameObject> enemies;
     
-    //List of the Gameobjects with the Checkpoints scripts attached
-    public List<GameObject> checkpoints;
+    //List of the Gameobjects with the Checkpoints scripts attached;
+    
+    public Dictionary<GameObject, bool> checkpoints;
     
 }

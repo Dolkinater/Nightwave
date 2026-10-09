@@ -18,10 +18,16 @@ public class Idle : Grounded
         base.UpdateLogic();
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            stateMachine.ChangeState(_sm.slidingState);
+            return;
+        }
 
         if (Mathf.Abs(_horizontalInput) > Mathf.Epsilon || Mathf.Abs(_verticalInput) > Mathf.Epsilon)
         {
             stateMachine.ChangeState(((MovementSM)stateMachine).movingState);
         }
+        
     }
 }

@@ -21,26 +21,15 @@ public class PlayerData : ScriptableObject
     public char tempRank;
 
     public float timeTaken;
-
-    public static PlayerData playerData;
-
+    
     #endregion
 
-    private void Awake()
-    {
-        if (playerData == null)
-        {
-
-        }
-        else 
-        { 
-        
-        }
-
-    }
-
     
-
+    #region PlayerController
+    
+    public static PlayerController playerController;
+    
+    #endregion
 
 
 }
