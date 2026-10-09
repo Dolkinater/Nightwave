@@ -36,9 +36,11 @@ public class EnemyStateFollow : StatesBase
     {
         base.thisUpdate();
 
-        UpdateAttackPlayer();
+        sm.agent.SetDestination(sm.player.position);
+
         UpdateLoseTarget();
         UpdatePlayerFollow();
+        UpdateAttackPlayer();
     }
 
     void UpdateLoseTarget() // updates if the player lost the target
@@ -68,13 +70,14 @@ public class EnemyStateFollow : StatesBase
         }
     }
 
+    
     void UpdatePlayerFollow() // updates if the player's navagent is moving and how it moves
     {
         sm.agent.speed = sm.movementSpeed;
 
         int movementStateValue = -1;
 
-        if (sm.DistanceToPlayer() <= sm.GetBackOffRange()) // if the enemy is within attacking range, stop moving
+        if (sm.DistanceToPlayer() <= sm.backOffRange) // if the enemy is within attacking range, stop moving
         {
             movementStateValue = 0; // in range, too close
         }
@@ -87,7 +90,7 @@ public class EnemyStateFollow : StatesBase
             movementStateValue = 2; // following
         }
 
-        sm.agent.isStopped = movementStateValue % 2 == 0; // if the state is 0 or 2, the agent is moving
+        sm.agent.isStopped = movementStateValue != 2; // if the state is 0 or 2, the agent is moving
 
         if (movementStateValue == 2)
         {
@@ -99,6 +102,7 @@ public class EnemyStateFollow : StatesBase
         }
     }
 
+    
     void MoveTowardsPlayer()
     {
         if (timeForFollowUpdate <= 0f) // timer-based buffer for pathfinding to prevent the path from needing to update every second
@@ -125,7 +129,7 @@ public class EnemyStateFollow : StatesBase
         sm.FacePlayer();
 
         Vector3 awayFromPlayer =
-            sm.transform.position - sm.player.transform.position;
+            (sm.transform.position - sm.player.transform.position);
 
         awayFromPlayer.y = 0f;
 
@@ -134,10 +138,12 @@ public class EnemyStateFollow : StatesBase
 
         awayFromPlayer.Normalize();
 
-        float movementThisFrame = Mathf.Min(
-            sm.GetBackOffSpeed() * Time.deltaTime,
-            sm.GetBackOffRange() - sm.DistanceToPlayer()
-        );
+       float movementThisFrame = sm.GetBackOffSpeed() * Time.deltaTime;
+            
+       //     Mathf.Min(
+       //     sm.GetBackOffSpeed() * Time.deltaTime,
+        //    sm.GetBackOffRange() - sm.DistanceToPlayer()
+      //  );
 
         Vector3 displacement =
             awayFromPlayer * movementThisFrame;
@@ -151,6 +157,7 @@ public class EnemyStateFollow : StatesBase
 
         sm.agent.Move(displacement);
     }
+
 
     void UpdateAttackPlayer() // updates the enemy's logic for attacking the player
     {

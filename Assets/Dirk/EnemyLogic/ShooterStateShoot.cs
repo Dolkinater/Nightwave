@@ -20,6 +20,8 @@ public class ShooterStateShoot : StatesBase
 
         recoilTime = Random.Range(1.5f, 2.5f);
 
+        Debug.Log("Shoot");
+
         Shoot();
     }
 
@@ -33,6 +35,8 @@ public class ShooterStateShoot : StatesBase
         {
             if (shootTwice)
             {
+                shootTwice = false;
+
                 recoilTime = Random.Range(0.75f, 1.5f);
                 Shoot();
                 return;
@@ -47,11 +51,10 @@ public class ShooterStateShoot : StatesBase
         //display parry particle
         //display attack particle
 
-        sm.CallParry();
+        sm.GetParryParticle()?.Play();
+
         sm.FacePlayer();
 
-        Debug.Log("ADD BULLET HERE");
-
-       // Object.Instantiate(sm.GetBullet(), sm.transform.position, Quaternion.identity).GetComponent<ShooterProjectile>().SetMovementDirection(enemy.player.transform.position - enemy.transform.position);
+        Object.Instantiate(sm.GetBullet(), sm.transform.position, Quaternion.identity).GetComponent<ShooterProjectile>().SetMovementDirection(sm.player.transform.position - sm.transform.position);
     }
 }

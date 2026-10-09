@@ -28,6 +28,9 @@ public class Health : MonoBehaviour
 
     public bool UnitIsDamageable() { return canTakeDamage && currentInvincibilityTimer <= 0; } // function returns true if this unit can take damage, and false if it can't take damage
 
+    bool isParrying; // if the user is currently parrying against attacks
+    public void SetIsParrying(bool value) { isParrying = value; }
+
     #endregion
 
 
@@ -41,10 +44,29 @@ public class Health : MonoBehaviour
 
     #endregion
 
+    StateMachine stateMachine;
+
+    private void Awake()
+    {
+        stateMachine = GetComponent<StateMachine>();
+    }
 
     private void Start()
     {
         currentHealthPoints = maxHealthPoints;
+    }
+
+    public void ChangeHealthBy(int value, out bool parriedAttack)
+    {
+        parriedAttack = false;
+
+        if (isParrying) // if this user is parrying, inform the function's caller that the attack failed, prompting a response from the caller
+        {
+            parriedAttack = true;
+            return;
+        }
+
+        ChangeHealthBy(value);
     }
 
     public void ChangeHealthBy(int value)
@@ -72,6 +94,8 @@ public class Health : MonoBehaviour
         {
             Debug.Log("Dead");
             OnUnitDeathEvent?.Invoke(thisUnitType, this.gameObject); // calls an event to functions with UnitAffiliation as a paramater, and thisUnitType defines the parameter's value
+
+            stateMachine?.ChangeState(stateMachine.GetDeathState()); // Kills the associated state machine
 
                 // examples of subscribed functions
                         // if (thisUnitType == UnitAffiliation.player) { reload the level from the beginning; }

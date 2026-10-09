@@ -34,9 +34,9 @@ public class WalkerStateAttack : StatesBase
         punchSpeed = 0f;
         punchDirection = Vector3.zero;
 
-        sm.CallParry();
-
-        attackCoroutine = sm.StartCoroutine(Punch());
+        attackCoroutine = sm.StartCoroutine(Punch()); 
+        
+        Debug.Log("Attack");
     }
 
     public void MoveAttack(Vector3 displacement)
@@ -65,7 +65,7 @@ public class WalkerStateAttack : StatesBase
             yield return null;
         }
 
-        sm.CallParry();
+        sm.GetParryParticle()?.Play();
 
         yield return new WaitForSeconds(ParryCueDuration);
 
@@ -73,9 +73,11 @@ public class WalkerStateAttack : StatesBase
         punchDirection.y = 0f;
         punchDirection.Normalize();
 
-        punchSpeed = sm.DistanceToPlayer() * 0.9f;
+        punchSpeed = sm.DistanceToPlayer() * 2f;
 
         timer = 0;
+
+        sm.meleeAttack.SetActive(true);
 
         while (timer < PunchDuration)
         {
@@ -86,6 +88,8 @@ public class WalkerStateAttack : StatesBase
             timer += Time.deltaTime;
             yield return null;
         }
+
+        sm.meleeAttack.SetActive(false);
 
         yield return new WaitForSeconds(RecoveryDuration);
 
@@ -99,5 +103,7 @@ public class WalkerStateAttack : StatesBase
             sm.StopCoroutine(attackCoroutine);
             attackCoroutine = null;
         }
+        sm.meleeAttack.SetActive(false);
+
     }
 }

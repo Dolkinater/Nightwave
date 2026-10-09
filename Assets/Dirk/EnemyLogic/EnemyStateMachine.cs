@@ -7,7 +7,9 @@ public abstract class EnemyStateMachine : StateMachine
     #region components
 
     [HideInInspector] public UnityEngine.AI.NavMeshAgent agent;
-    
+
+    [SerializeField] ParticleSystem parryParticle;
+    public ParticleSystem GetParryParticle() { return parryParticle; }
 
     #endregion
 
@@ -45,7 +47,7 @@ public abstract class EnemyStateMachine : StateMachine
     [Header("Attacking Values")]
     [Min(0f)] public float attackFrequency = 1f; // how fast this enemy checks to attack when entering attackRange
     [Min(0f)] public float attackRange = 4f; // distance to stop following begin attacking player
-    public float GetBackOffRange() { return attackRange * 0.5f; }
+    [Min(0f)] public float backOffRange = 1f; // distance to walk away from player
 
     #endregion
 
@@ -119,7 +121,8 @@ public abstract class EnemyStateMachine : StateMachine
 
     public virtual StatesBase GetAttackState() { return null; }
 
-    public override StatesBase GetDeathState() { Destroy(this.gameObject); return null; }
+    public EnemyStateDead DeadState { get; private set; }
+    public override StatesBase GetDeathState() { return DeadState; }
 
     #endregion
 
@@ -137,6 +140,7 @@ public abstract class EnemyStateMachine : StateMachine
         IdleState = new EnemyStateIdle(this);
         FollowingState = new EnemyStateFollow(this);
         KnockbackState = new EnemyStateKnockback(this);
+        DeadState = new EnemyStateDead(this);
     }
 
     public override void InstantiateValues()
@@ -221,11 +225,6 @@ public abstract class EnemyStateMachine : StateMachine
             targetRotation,
             agent.angularSpeed * Time.deltaTime
         );
-    }
-
-    public void CallParry()
-    {
-        Debug.Log("Parry!!!!!!!");
     }
 
     private void OnDrawGizmosSelected()

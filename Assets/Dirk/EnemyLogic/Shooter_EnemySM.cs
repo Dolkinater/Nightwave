@@ -1,9 +1,16 @@
 ﻿using System;
+using UnityEngine;
 
 public class Shooter_EnemySM : EnemyStateMachine
 {
 	public ShooterStateShoot ShootState { get; private set; }
     public override StatesBase GetAttackState() { return ShootState; }
+
+    [SerializeField] GameObject bullet;
+    public GameObject GetBullet()
+    {
+        return bullet;
+    }
 
     public override void InstantiateComponents()
     {

@@ -11,7 +11,6 @@ public class PlayerStateJump : StatesBase
 
     public override void thisStart()
     {
-        Debug.Log("Jump");
         sm.velocity.y = Mathf.Sqrt(sm.jumpHeight * -2f * sm.gravity);
         sm.canMove = true;
 

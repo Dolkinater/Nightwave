@@ -27,12 +27,20 @@ public class PlayerStateMachine : StateMachine
 
     public bool canMove = false;
 
+    public float specialAbilityCooldown = 15f;
+    float currentSpecialCooldown = 0f;
+
+    public bool GetCanUseSpecialAbility() { return currentSpecialCooldown <= 0; }
+    public void ResetSpecialAbilityCooldown() { currentSpecialCooldown = specialAbilityCooldown; }
+
     [Header("Jump Settings")]
 
     [HideInInspector] public Vector3 velocity;
 
     public float gravity = -70f;
     public float jumpHeight = 5f;
+
+    public float parryWindow = 1f;
 
     [Header("Dash Settings")]
     public float dashSpeed;
@@ -45,6 +53,11 @@ public class PlayerStateMachine : StateMachine
 
     [HideInInspector] public Vector3 dashMomentum = Vector3.zero;
 
+    [Header("Player Combat Values")]
+    [Header("Character 1 - Rog")]
+    public float lightAttack_speed = 4f;
+    public float heavyAttack_speed = 4f;
+
     #endregion
 
     #region states
@@ -56,6 +69,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerStateJump JumpState { get; private set; }
     public PlayerStateSlide SlideState { get; private set; }
     public PlayerStateDash DashState { get; private set; }
+    public PlayerStateParry ParryState { get; private set; }
 
     public Char1StatePrimaryAttack c1_primary { get; private set; }
     public Char1StateSecondaryAttack c1_secondary { get; private set; }
@@ -70,6 +84,7 @@ public class PlayerStateMachine : StateMachine
         JumpState = new PlayerStateJump(this);
         SlideState = new PlayerStateSlide(this);
         DashState = new PlayerStateDash(this);
+        ParryState = new PlayerStateParry(this);
 
         c1_primary = new Char1StatePrimaryAttack(this);
         c1_secondary = new Char1StateSecondaryAttack(this);
@@ -84,6 +99,9 @@ public class PlayerStateMachine : StateMachine
     [HideInInspector] public PlayerParticleController particleController;
 
     [HideInInspector] public CharacterController playerController;
+    [HideInInspector] public CapsuleCollider playerCollider;
+
+    [HideInInspector] public Health health;
 
     [Header("Character Section")]
     public GameObject Character1;
@@ -100,6 +118,9 @@ public class PlayerStateMachine : StateMachine
         playerController = GetComponent<CharacterController>();
         inputController = GetComponent<PlayerInputController>();
         particleController = GetComponentInChildren<PlayerParticleController>();
+        playerCollider = GetComponent<CapsuleCollider>();
+
+        health = GetComponent<Health>();
 
         c1Attack1.SetActive(false);
         c1Attack2.SetActive(false);
@@ -131,7 +152,6 @@ public class PlayerStateMachine : StateMachine
         if (currentDashStock < dashStock)
         {
             dashStockResetTimer += Time.deltaTime;
-            Debug.Log("Timer increasing: " + dashStockResetTimer);
         }
 
         if (dashStockResetTimer >= dashCooldown)
@@ -150,10 +170,10 @@ public class PlayerStateMachine : StateMachine
         Vector3 currentAngles = transform.eulerAngles;
         transform.eulerAngles = new Vector3(currentAngles.x, canRotate ? Camera.main.transform.eulerAngles.y : currentAngles.y, currentAngles.z);
 
-
         if (canMove == false) { moveDirection = Vector2.zero; }
 
         Vector3 moveRotation = transform.TransformDirection(moveDirection);
+
         Vector3 movement = moveRotation * speed + velocity;
 
         if (GetCurrentState() != DashState && DashState.jumpDash == true)
@@ -203,6 +223,10 @@ public class PlayerStateMachine : StateMachine
                         ChangeState(c1_secondary);
                         break;
                     case 2:
+                        if (!GetCanUseSpecialAbility()) { return; } // special ability cooldown hasn't reset
+
+                        ResetSpecialAbilityCooldown();
+
                         ChangeState(c1_special);
                         break;
                 }
@@ -238,10 +262,19 @@ public class PlayerStateMachine : StateMachine
         }
     }
 
+    void SpecialAbilityTimerUpdate()
+    {
+        if (currentSpecialCooldown > 0)
+        {
+            currentSpecialCooldown -= Time.deltaTime;
+        }
+    }
+
     public override void UpdateFunctions() 
     {
         PlayerDashStockUpdate();
         PlayerMovement();
+        SpecialAbilityTimerUpdate();
 
         if (playerController.isGrounded)
         {

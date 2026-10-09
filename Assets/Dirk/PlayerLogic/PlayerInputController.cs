@@ -4,18 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : MonoBehaviour
 {
     public Vector2 moveInput;
-
-    /*void OnMove(InputValue value)
-    {
-        Debug.Log("Response");
-    }
-
-    public void OnMove() //InputAction.CallbackContext context)
-    {
-        Debug.Log("HJJJJJJJJJJJ");
-        Debug.Log("Move");
-        moveInput = context.ReadValue<Vector2>();
-    }*/
+    
+    // jump
 
     private bool jumpPressed = false;
     public bool GetJumpPressed() 
@@ -26,16 +16,13 @@ public class PlayerInputController : MonoBehaviour
     }
     private float jumpBuffer;
 
-    public void OnJump() //InputAction.CallbackContext context)
+    public void OnJump()
     {
-        /*if (!context.performed)
-         {
-             return;
-         }*/
-
         jumpPressed = true;
         jumpBuffer = 0.075f;
     }
+
+    // dash
 
     private bool dashPressed = false;
     public bool GetDashPressed() 
@@ -46,16 +33,13 @@ public class PlayerInputController : MonoBehaviour
     }
     private float dashBuffer;
 
-    public void OnDash() //InputAction.CallbackContext context)
+    public void OnDash()
     {
-        /*if (!context.performed)
-        {
-            return;
-        }*/
-
         dashPressed = true;
         dashBuffer = 0.5f;
     }
+
+    // slide
 
     private bool slidePressed = false;
     public bool GetSlidePressed() 
@@ -66,16 +50,13 @@ public class PlayerInputController : MonoBehaviour
     }
     private float slideBuffer;
 
-    public void OnSlide() //InputAction.CallbackContext context)
+    public void OnSlide()
     {
-        /*if (!context.performed)
-        {
-            return;
-        }*/
-
         slidePressed = true;
         slideBuffer = 0.5f;
     }
+
+    // character swapping
 
     int characterSwapped = -1;
     public int GetSwapValue()
@@ -86,38 +67,25 @@ public class PlayerInputController : MonoBehaviour
     }
     private float swapBuffer;
 
-    public void OnCharacterSwitch1() //InputAction.CallbackContext context)
+    public void OnCharacterSwitch1()
     {
-        /*if (!context.performed)
-        {
-            return;
-        }*/
-
         characterSwapped = 0;
         swapBuffer = 0.5f;
     }
 
-    public void OnCharacterSwitch2() //InputAction.CallbackContext context)
+    public void OnCharacterSwitch2()
     {
-        /*if (!context.performed)
-        {
-            return;
-        }*/
-
         characterSwapped = 1;
         swapBuffer = 0.5f;
     }
 
-    public void OnCharacterSwitch3() //InputAction.CallbackContext context)
+    public void OnCharacterSwitch3()
     {
-        /*if (!context.performed)
-        {
-            return;
-        }*/
-
         characterSwapped = 2;
         swapBuffer = 0.5f;
     }
+
+    // combat
 
     int attackSelected = -1;
     public int GetAttackValue()
@@ -128,44 +96,55 @@ public class PlayerInputController : MonoBehaviour
     }
     private float attackBuffer;
 
-    public void OnAttack1() //InputAction.CallbackContext context)
-    {
-        /*if (!context.performed)
-        {
-            return;
-        }*/
+    bool isHoldingPrimaryAttack = false;
+    public bool GetIsHoldingPrimaryAttack() { return isHoldingPrimaryAttack; }
 
+    public void OnAttack1()
+    {
         attackSelected = 0;
 
         attackBuffer = 0.5f;
     }
-    public void OnAttack2() //InputAction.CallbackContext context)
+    public void OnAttack2()
     {
-        /*if (!context.performed)
-        {
-            return;
-        }*/
-
         attackSelected = 1;
 
         attackBuffer = 0.5f;
     }
-    public void OnSpecialAttack() //InputAction.CallbackContext context)
+    public void OnSpecialAttack()
     {
-        /*if (!context.performed)
-        {
-            return;
-        }*/
-
         attackSelected = 2;
 
         attackBuffer = 0.5f;
+    }
+
+    // parry
+
+    private bool parryPressed;
+    private float parryBuffer;
+    public bool GetParryPressed()
+    {
+        bool getVal = parryPressed;
+        parryPressed = false;
+        return getVal;
+    }
+    public void OnParry()
+    {
+        parryPressed = true;
+
+        parryBuffer = 0.5f;
     }
 
     void Update()
     {
         UpdateBuffers();
         UpdateInputs();
+        UpdateHeldInputs();
+    }
+
+    void UpdateHeldInputs()
+    {
+        isHoldingPrimaryAttack = Mouse.current.leftButton.isPressed;
     }
 
     void UpdateInputs()
@@ -197,6 +176,8 @@ public class PlayerInputController : MonoBehaviour
         if (Keyboard.current.leftShiftKey.wasPressedThisFrame) { OnDash(); }
 
         if (Keyboard.current.leftCtrlKey.wasPressedThisFrame) { OnSlide(); }
+
+        if (Keyboard.current.eKey.wasPressedThisFrame) { OnParry(); }
     }
 
     void UpdateBuffers()
@@ -244,6 +225,15 @@ public class PlayerInputController : MonoBehaviour
         else
         {
             attackSelected = -1;
+        }
+
+        if (parryBuffer > 0)
+        {
+            parryBuffer -= Time.deltaTime;
+        }
+        else
+        {
+            parryPressed = false;
         }
     }
 }

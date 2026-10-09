@@ -25,6 +25,7 @@ public class EnemyStateKnockback : StatesBase
     {
         base.thisStart();
         elapsedTime = 0f;
+        Debug.Log("Kb");
     }
 
     public override void thisUpdate()
@@ -57,5 +58,12 @@ public class EnemyStateKnockback : StatesBase
         }
 
         sm.agent.Move(displacement);
+    }
+
+    public override void thisEnd()
+    {
+        base.thisEnd();
+
+        Debug.Log(" end knockbac = " + elapsedTime);
     }
 }

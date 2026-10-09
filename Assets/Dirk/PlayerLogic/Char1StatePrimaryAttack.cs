@@ -33,9 +33,40 @@ public class Char1StatePrimaryAttack : StatesBase
 
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(0.7f);
-        sm.c1Attack1.SetActive(false);
-        yield return new WaitForSeconds(0.3f);
-        sm.ChangeState(sm.IdleState);
+        Debug.Log("Start");
+
+        float timer = 0;
+        while (timer < 0.2f)
+        {
+            Vector3 movement = sm.transform.forward * sm.lightAttack_speed + sm.velocity;
+            Debug.Log("movement = " + movement);
+            sm.playerController.Move(movement * Time.deltaTime);
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        sm.c1Attack1.SetActive(false); 
+        timer = 0f;
+
+        float finalTimer = 0.3f;
+        while (timer < finalTimer)
+        {
+            Vector3 movement = sm.transform.forward * (sm.lightAttack_speed * .1f * (Mathf.Clamp01((finalTimer - timer) / finalTimer))) + sm.velocity;
+
+            sm.playerController.Move(movement * Time.deltaTime);
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        if (sm.inputController.GetIsHoldingPrimaryAttack())
+        {
+            sm.ChangeState(sm.c1_primary);
+        }
+        else
+        {
+            sm.ChangeState(sm.IdleState);
+        }
     }
 }

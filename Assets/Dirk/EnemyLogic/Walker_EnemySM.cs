@@ -5,16 +5,20 @@ public class Walker_EnemySM : EnemyStateMachine
     public WalkerStateAttack AttackState { get; private set; }
     public override StatesBase GetAttackState() { return AttackState; }
 
-    public override void InstantiateComponents()
-    {
-        base.InstantiateComponents();
-    }
-
     public override void InstantiateStates()
     {
         base.InstantiateStates();
 
         AttackState = new WalkerStateAttack(this);
+    }
+
+
+    public GameObject meleeAttack;
+
+    public override void InstantiateComponents()
+    {
+        base.InstantiateComponents();
+        meleeAttack.SetActive(false);
     }
 
     [Min(0.1f)] public float windUpTime = 0.5f;

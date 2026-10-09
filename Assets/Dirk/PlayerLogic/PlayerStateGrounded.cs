@@ -27,9 +27,15 @@ public class PlayerStateGrounded : StatesBase
             return;
         }
 
-        sm.PlayerDashCheck();
+        if (sm.inputController.GetParryPressed()) // parry
+        {
+            sm.ChangeState(sm.ParryState);
+            return;
+        }
 
-        if (sm.inputController.GetSlidePressed())
+        sm.PlayerDashCheck(); // dash
+
+        if (sm.inputController.GetSlidePressed()) // slide
         {
             sm.ChangeState(sm.SlideState);
             return;

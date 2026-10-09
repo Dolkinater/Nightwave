@@ -34,9 +34,32 @@ public class Char1StateSecondaryAttack : StatesBase
 
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(0.2f);
-        sm.c1Attack2.SetActive(false);
-        yield return new WaitForSeconds(0.8f);
+        float timer = 0;
+        while (timer < 0.2f)
+        {
+            Vector3 movement = sm.transform.forward * sm.heavyAttack_speed + sm.velocity;
+
+            sm.playerController.Move(movement * Time.deltaTime);
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        sm.c1Attack1.SetActive(false);
+        sm.c1Attack1.SetActive(false); 
+        
+        timer = 0;
+        float finalTimer = 0.2f;
+        while (timer < finalTimer)
+        {
+            Vector3 movement = sm.transform.forward * (sm.heavyAttack_speed * .1f * (Mathf.Clamp01((finalTimer-timer)/finalTimer))) + sm.velocity;
+
+            sm.playerController.Move(movement * Time.deltaTime);
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
         sm.ChangeState(sm.IdleState);
     }
 }

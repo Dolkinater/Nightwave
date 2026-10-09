@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public class EnemyStateIdle : StatesBase
 {
@@ -19,7 +20,7 @@ public class EnemyStateIdle : StatesBase
         base.thisUpdate();
 
         if (sm.HasLineOfSight() &&
-            sm.DistanceToPlayer() < sm.detectionDistance)
+            sm.DistanceToPlayer() <= sm.detectionDistance)
         {
             sm.ChangeState(sm.FollowingState);
         }
