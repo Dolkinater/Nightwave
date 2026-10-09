@@ -25,7 +25,7 @@ public class EnemyStateKnockback : StatesBase
     {
         base.thisStart();
         elapsedTime = 0f;
-        Debug.Log("Kb");
+        sm.GetAnimator().Play("knockback");
     }
 
     public override void thisUpdate()

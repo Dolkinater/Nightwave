@@ -11,6 +11,9 @@ public abstract class EnemyStateMachine : StateMachine
     [SerializeField] ParticleSystem parryParticle;
     public ParticleSystem GetParryParticle() { return parryParticle; }
 
+    Animator animator;
+    public Animator GetAnimator() { return animator; }
+
     #endregion
 
     #region variables
@@ -131,6 +134,7 @@ public abstract class EnemyStateMachine : StateMachine
         base.InstantiateComponents();
 
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
     }
     
     public override void InstantiateStates()
@@ -148,45 +152,11 @@ public abstract class EnemyStateMachine : StateMachine
         base.InstantiateValues();
     }
 
-   /* private void CheckKnockbackTest()
-    {
-        Debug.Log("PLEASE DELETE THIS CHECK");
-
-        if (!enableKnockbackTest || Keyboard.current == null)
-            return;
-
-        if (knockbackTestKey == Key.None)
-            return;
-
-        if (Cursor.lockState != CursorLockMode.Locked)
-            return;
-
-        if (Keyboard.current[knockbackTestKey].wasPressedThisFrame &&
-            hasLineOfSight &&
-            distanceToPlayer <= knockbackTestRange)
-        {
-            Vector3 directionAwayFromPlayer =
-                transform.position - player.position;
-
-            ApplyKnockback(
-                directionAwayFromPlayer,
-                knockbackForce,
-                knockbackDuration
-            );
-        }
-    }*/
-
     public void ApplyKnockback(
         Vector3 knockbackDirection,
         float knockbackForce,
         float knockbackDuration)
     {
-        /*if (!isActiveAndEnabled || !AgentReady ||
-            KnockbackState == null)
-        {
-            return;
-        }*/
-
         knockbackDirection.y = 0f;
 
         if (knockbackDirection.sqrMagnitude < 0.0001f ||

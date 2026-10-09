@@ -20,9 +20,9 @@ public class ShooterStateShoot : StatesBase
 
         recoilTime = Random.Range(1.5f, 2.5f);
 
-        Debug.Log("Shoot");
-
         Shoot();
+
+        sm.GetAnimator().Play("attack");
     }
 
     public override void thisUpdate()

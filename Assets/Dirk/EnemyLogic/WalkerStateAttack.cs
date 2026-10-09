@@ -34,9 +34,9 @@ public class WalkerStateAttack : StatesBase
         punchSpeed = 0f;
         punchDirection = Vector3.zero;
 
-        attackCoroutine = sm.StartCoroutine(Punch()); 
+        attackCoroutine = sm.StartCoroutine(Punch());
         
-        Debug.Log("Attack");
+        sm.GetAnimator().Play("attack");
     }
 
     public void MoveAttack(Vector3 displacement)

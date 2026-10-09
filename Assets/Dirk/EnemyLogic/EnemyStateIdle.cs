@@ -13,6 +13,8 @@ public class EnemyStateIdle : StatesBase
     public override void thisStart()
     {
         base.thisStart();
+
+        sm.GetAnimator().Play("idle");
     }
 
     public override void thisUpdate()

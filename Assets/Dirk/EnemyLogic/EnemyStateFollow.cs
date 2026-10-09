@@ -30,6 +30,8 @@ public class EnemyStateFollow : StatesBase
         timeForFollowUpdate = 0f;
 
         timeAttackPlayer = sm.attackFrequency + Random.Range(-.5f, .5f);
+
+        sm.GetAnimator().Play("follow");
     }
 
     public override void thisUpdate()
