@@ -6,6 +6,9 @@ public class RogStasisTempFix : MonoBehaviour
 
     [SerializeField] Vector3 localPos;
 
+    public void SetLocalPos(Vector3 value) { localPos = value; }
+    public Vector3 GetLocalPos() { return localPos; }
+
     private void Awake()
     {
         localPos = transform.localPosition;
