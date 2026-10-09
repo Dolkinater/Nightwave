@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    private float levelTimer;
+    public static float levelTimer;
     public float GetLevelTimer(){return levelTimer;}
     public bool isCounting = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (isCounting)
+        if(isCounting)
         {
             levelTimer += Time.deltaTime;
         }

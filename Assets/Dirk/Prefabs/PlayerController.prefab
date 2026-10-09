@@ -10478,6 +10478,9 @@ MonoBehaviour:
   - audio:
     - {fileID: 8300000, guid: 28e096a9fa8411f42852c983229fa559, type: 3}
     nameRef: jump
+  - audio:
+    - {fileID: 8300000, guid: 91bfe8149bd5c83489cdccb028289038, type: 3}
+    nameRef: damage
 --- !u!1 &6068237658052980764
 GameObject:
   m_ObjectHideFlags: 0

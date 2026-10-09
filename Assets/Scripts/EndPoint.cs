@@ -3,11 +3,20 @@ using UnityEngine;
 
 public class EndPoint : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        Debug.Log("Other = " + other.name);
+
+        if (other.gameObject.CompareTag("Player"))
         {
             LevelManager.OnLevelComplete();
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("EndScene");
+        }
+        else
+        {
+
+            Debug.Log("Tag = " + other.tag);
         }
     }
 }

@@ -25,10 +25,26 @@ public class PlayerStateMachine : StateMachine
         currentDashStock = dashStock;
     }
 
+    public override void StartFunctions()
+    {
+        base.StartFunctions();
+
+        if (CheckpointLogic.checkpoints <= 0) { return; }
+
+        Debug.Log("position = " + CheckpointLogic.storedPlayerPosition + ";  forward = " + CheckpointLogic.storedFacingDirection);
+
+        transform.position = CheckpointLogic.storedPlayerPosition;
+        transform.forward = CheckpointLogic.storedFacingDirection;
+
+
+        Debug.Log("position = " + transform.position + ";  forward = " + transform.forward);
+    }
+
     public bool canMove = false;
 
     public float specialAbilityCooldown = 15f;
     float currentSpecialCooldown = 0f;
+    public float GetCurrentSpecialCooldown() { return currentSpecialCooldown; }
 
     public bool GetCanUseSpecialAbility() { return currentSpecialCooldown <= 0; }
     public void ResetSpecialAbilityCooldown() { currentSpecialCooldown = specialAbilityCooldown; }
@@ -48,6 +64,8 @@ public class PlayerStateMachine : StateMachine
     public int dashStock = 3;
 
     private int currentDashStock;
+    public int GetCurrentDashStock() { return currentDashStock; }
+
     private float dashStockResetTimer;
     public float dashCooldown = 5f;
 
@@ -70,6 +88,11 @@ public class PlayerStateMachine : StateMachine
     public PlayerStateSlide SlideState { get; private set; }
     public PlayerStateDash DashState { get; private set; }
     public PlayerStateParry ParryState { get; private set; }
+    public PlayerStateDead DeadState { get; private set; }
+    public override StatesBase GetDeathState()
+    {
+        return DeadState;
+    }
 
     public Char1StatePrimaryAttack c1_primary { get; private set; }
     public Char1StateSecondaryAttack c1_secondary { get; private set; }
@@ -85,6 +108,7 @@ public class PlayerStateMachine : StateMachine
         SlideState = new PlayerStateSlide(this);
         DashState = new PlayerStateDash(this);
         ParryState = new PlayerStateParry(this);
+        DeadState = new PlayerStateDead(this);
 
         c1_primary = new Char1StatePrimaryAttack(this);
         c1_secondary = new Char1StateSecondaryAttack(this);

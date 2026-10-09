@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
 
     #region events
 
-    public delegate void ModifyHealth(int newHealthValue, int maxHealthValue, int healthDelta);
+    public delegate void ModifyHealth(int newHealthValue, int maxHealthValue, int healthDelta, UnitAffiliation unitType);
     public static ModifyHealth OnHealthChangeEvent;
 
     public delegate void UnitDeath(UnitAffiliation unitAffiliation, GameObject unit);
@@ -92,7 +92,7 @@ public class Health : MonoBehaviour
         currentHealthPoints += value;
         currentHealthPoints = Mathf.Clamp(currentHealthPoints, 0, maxHealthPoints);
 
-        OnHealthChangeEvent?.Invoke(currentHealthPoints, maxHealthPoints, value); // calls an event to functions with an 3 integer paramaters, with currentHealthPoints defining the integer parameter's value
+        OnHealthChangeEvent?.Invoke(currentHealthPoints, maxHealthPoints, value, thisUnitType); // calls an event to functions with an 3 integer paramaters, with currentHealthPoints defining the integer parameter's value
         //The function also sends the players maxhealth and the value that changed for expanded functionality
         
         if (currentHealthPoints <= 0)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameState { Paused, MainMenu, Win, Lose, Active }
+public enum GameState { Paused, MainMenu, Active }
 
 public class GameManager : MonoBehaviour
 {
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        ChangeState(GameState.MainMenu);
+        
         
     }
     
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
        
         
     }
+    /*
 
     public void ChangeState(GameState newState)
     {
@@ -72,7 +73,8 @@ public class GameManager : MonoBehaviour
         
         OnChangeStateEvent?.Invoke(currentState);
     }
-
+    */
+    /*
     void Exit(bool completedLevel)
     {
         if (!completedLevel)
@@ -90,19 +92,15 @@ public class GameManager : MonoBehaviour
         
         
     }
+    */
+    
 
-    void SetActive(){
-        Time.timeScale = 1;
-    }
-
-    void LoadMenu()
+    public static void ReloadData()
     {
-        SceneManager.LoadScene("Main Menu");
-    }
-
-    void Pause()
-    {
-        Time.timeScale = 0;
+        Timer.levelTimer = 0;
+        RankManager.finalRank = 0;
+        ScoreManager.playerScore = 0;
+        CheckpointLogic.checkpoints = 0;
     }
     
     

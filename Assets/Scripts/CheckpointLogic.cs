@@ -1,15 +1,15 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class CheckpointLogic : MonoBehaviour
 {
     [SerializeField] Transform player;
 
-    static Vector3 storedPlayerPosition;
-    static Vector3 storedFacingDirection;
+    public static Vector3 storedPlayerPosition;
+    public static Vector3 storedFacingDirection;
     public static int storedScore;
-    
-    
 
     public delegate void CheckpointReached();
     public static event CheckpointReached OnCheckpointReached;
@@ -21,19 +21,13 @@ public class CheckpointLogic : MonoBehaviour
     }
     static List<GameObject> permanent_defeatedEnemies; // once players reach a checkpoint, this list is made equal to temp_defeatedEnemies; when respawning, enemies found in this list will be disabled
     
-    void OnRespawn()
+    public static void OnRespawn()
     {
-        player.transform.position = storedPlayerPosition;
-        player.transform.forward = storedFacingDirection; 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // current score value is set to the value of storedScore;
+
+        ScoreManager.playerScore = storedScore;
         
-        foreach (GameObject enemy in permanent_defeatedEnemies)
-        {
-            enemy.SetActive(false);
-            // enemies are disabled at the beginning of the scene if they were previously killed before players received a checkpoint
-            // enemies are disabled through SetActive rather than destroyed, as destroying gameobjects is a rather expensive function call
-                // however, this may need to be changed in the event that we manually cull the enemies with the SetActive function, which would overwrite this
-        }
     }
 
     void OnCheckPoint() // stores what enemies the player killed, how the player will be placed and rotated when respawning, and the current score value the player has earned
@@ -49,11 +43,19 @@ public class CheckpointLogic : MonoBehaviour
         OnCheckpointReached?.Invoke();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    bool dontCheckpoint = false;
+    public static int checkpoints = 0; // please delete this later, this is a workaround for getting the player to realize it has activated a checkpoint
+
+    private void OnTriggerEnter(Collider other)
     {
-        // if other is player
-        // {
-        OnCheckPoint();
-        // }
+        if (dontCheckpoint) { return; }
+
+        if (other.gameObject.tag == "Player")
+        {
+            dontCheckpoint = true;
+            checkpoints++;
+            OnCheckPoint();
+        }
+
     }
 }

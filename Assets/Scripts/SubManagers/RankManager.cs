@@ -9,14 +9,23 @@ public class RankManager : MonoBehaviour
     public ScoreManager scoreManager;
     public Timer timer;
     public float timeGoal;
+
+    public static Rank finalRank;
     
     
     public PlayerData playerData;
 
-    void Awake()
+    void OnEnable()
     {
        LevelManager.OnLevelEndEvent += AssignRank;
     }
+
+    void OnDisable()
+    {
+        LevelManager.OnLevelEndEvent -= AssignRank;
+    }
+    
+    
     public void AssignRank(bool competedLevel)
     {
         if (competedLevel)
@@ -24,7 +33,7 @@ public class RankManager : MonoBehaviour
             switch (scoreManager.GetPlayerScore())   
             {
                 case >= 100:
-                    if (timer.GetLevelTimer() < timeGoal)
+                    if (Timer.levelTimer < timeGoal)
                     {
                         rank = Rank.S;
                     }
@@ -44,6 +53,8 @@ public class RankManager : MonoBehaviour
             
             }
         }
+        
+        finalRank = rank;
         
     }
 }
