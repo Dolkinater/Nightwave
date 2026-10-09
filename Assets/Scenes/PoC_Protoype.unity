@@ -1345,14 +1345,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   player: {fileID: 0}
   levelComplete: 0
+  currentPoints: 0
+  playerScore: 0
+  savedPlayerScore: 0
+  enemyKillCount: 0
   checkpoints:
   - {fileID: 1792925971}
   - {fileID: 764174264}
   - {fileID: 1744282409}
   enemies: []
   endpoint: {fileID: 217696781}
-  startpoint: {fileID: 779396027}
   levelData: {fileID: 0}
+  totalPoints: 0
 --- !u!1 &320359540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3011,6 +3015,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91df5b8584b3a042a18a8c4d72128fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RankManager
+  scoreManager: {fileID: 0}
+  timer: {fileID: 0}
+  timeGoal: 0
   playerData: {fileID: 0}
 --- !u!1 &582711427
 GameObject:
@@ -7416,6 +7423,61 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521733822}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1537086532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1537086533}
+  - component: {fileID: 1537086534}
+  m_Layer: 0
+  m_Name: UiManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1537086533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537086532}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.09515, y: 0.97228, z: 7.65593}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1537086534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537086532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1cdf0d80853b748b51291f94f11194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  ScoreText: {fileID: 0}
+  HealthText: {fileID: 0}
+  KillStreakText: {fileID: 0}
+  MultiplierText: {fileID: 0}
+  DashStockText: {fileID: 0}
+  AbilityCooldownText: {fileID: 0}
+  scoreManager: {fileID: 0}
+  scoreMangerObject: {fileID: 0}
+  killStreakUIObject: {fileID: 0}
+  player: {fileID: 0}
+  playerHealth: {fileID: 0}
 --- !u!1 &1627298085
 GameObject:
   m_ObjectHideFlags: 0
@@ -9723,3 +9785,4 @@ SceneRoots:
   - {fileID: 1124682074}
   - {fileID: 1477382760}
   - {fileID: 1769171063}
+  - {fileID: 1537086533}
