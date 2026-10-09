@@ -21,13 +21,14 @@ public class PlayerStateSlide : StatesBase
         sm.playerController.height = 1;
         slideDirection = sm.transform.forward;
 
-        Debug.Log("Slide");
-
         time = 2f;
 
         exitSlide = false;
+        jumpOutOfSlide = false;
 
         sm.particleController.CallParticle(PlayerParticleController.ParticleStates.slideState);
+
+        sm.animator.Play("slide");
     }
 
     public override void thisUpdate()
@@ -67,6 +68,7 @@ public class PlayerStateSlide : StatesBase
 
     public override void thisEnd()
     {
+        sm.animator.StopPlayback();
         sm.playerController.height = 2;
     }
 }

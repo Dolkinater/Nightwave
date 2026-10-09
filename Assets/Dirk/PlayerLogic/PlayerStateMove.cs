@@ -14,6 +14,7 @@ public class PlayerStateMove : PlayerStateGrounded
         base.thisStart();
         sm.canMove = true;
         sm.particleController.CallParticle(PlayerParticleController.ParticleStates.walkState);
+        sm.animator.Play("run");
     }
 
     public override void thisUpdate()
@@ -38,6 +39,7 @@ public class PlayerStateMove : PlayerStateGrounded
 
     public override void thisEnd()
     {
+        sm.animator.StopPlayback();
         sm.canMove = false;
     }
 }

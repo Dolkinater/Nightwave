@@ -15,6 +15,7 @@ public class PlayerStateJump : StatesBase
         sm.canMove = true;
 
         sm.particleController.CallParticle(PlayerParticleController.ParticleStates.jumpState);
+        sm.animator.Play("jump");
     }
 
     public override void thisUpdate()
@@ -26,7 +27,7 @@ public class PlayerStateJump : StatesBase
     {
         base.thisFixedUpdate();
 
-        if (sm.playerController.isGrounded)
+        if (sm.playerController.isGrounded && sm.velocity.y < 0)
         {
             sm.ChangeState(sm.IdleState);
         }
@@ -41,6 +42,7 @@ public class PlayerStateJump : StatesBase
 
     public override void thisEnd()
     {
+        sm.animator.StopPlayback();
         sm.canMove = false;
     }
 }

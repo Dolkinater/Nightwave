@@ -103,13 +103,19 @@ public class PlayerStateMachine : StateMachine
 
     [HideInInspector] public Health health;
 
+    [HideInInspector] public Animator animator;
+
+    [Header("Camera Rotation")]
+    public GameObject orientation;
+
     [Header("Character Section")]
     public GameObject Character1;
     public GameObject Character2;
     public GameObject Character3;
 
     [Header("Attack Section")]
-    public GameObject c1Attack1;
+    public GameObject c1Attack1Left;
+    public GameObject c1Attack1Right;
     public GameObject c1Attack2;
     public GameObject c1SpAttack;
 
@@ -121,8 +127,10 @@ public class PlayerStateMachine : StateMachine
         playerCollider = GetComponent<CapsuleCollider>();
 
         health = GetComponent<Health>();
+        animator = GetComponentInChildren<Animator>();
 
-        c1Attack1.SetActive(false);
+        c1Attack1Left.SetActive(false);
+        c1Attack1Right.SetActive(false);
         c1Attack2.SetActive(false);
         c1SpAttack.SetActive(false);
     }
@@ -161,20 +169,39 @@ public class PlayerStateMachine : StateMachine
         }
     }
 
+    public void PlayerRotation(bool forceUpdate)
+    {
+        Vector3 viewDirection = transform.position - new Vector3(Camera.main.transform.position.x, transform.position.y, Camera.main.transform.position.z);
+        orientation.transform.forward = viewDirection.normalized;
+
+        float xInput = inputController.moveInput.x;
+        float yInput = inputController.moveInput.y;
+
+        Vector3 inputDirection = orientation.transform.forward * yInput + orientation.transform.right * xInput;
+
+        if (forceUpdate) // callers can manually force the player into the right direction regardless of whether "canMove" is true or false
+        {
+            if (inputDirection == Vector3.zero) { return; }
+
+            transform.forward = inputDirection.normalized;
+            return;
+        }
+
+        if (canMove == false) { inputDirection = Vector2.zero; }
+
+        if (inputDirection != Vector3.zero)
+        {
+            transform.forward = Vector3.Slerp(transform.forward, inputDirection.normalized, Time.deltaTime * 90f);
+        }
+    }
+
     void PlayerMovement()
     {
-        Vector3 moveDirection = new Vector3(inputController.moveInput.x, 0, inputController.moveInput.y);
+        PlayerRotation(false);
 
-        bool canRotate = moveDirection != Vector3.zero && canMove; // player should only move relative to the camera when movement input is received and when the player canMove is set to true
+        Vector3 moveRotation = transform.forward;
 
-        Vector3 currentAngles = transform.eulerAngles;
-        transform.eulerAngles = new Vector3(currentAngles.x, canRotate ? Camera.main.transform.eulerAngles.y : currentAngles.y, currentAngles.z);
-
-        if (canMove == false) { moveDirection = Vector2.zero; }
-
-        Vector3 moveRotation = transform.TransformDirection(moveDirection);
-
-        Vector3 movement = moveRotation * speed + velocity;
+        Vector3 movement = moveRotation * (speed * (canMove ? 1 : 0)) + velocity;
 
         if (GetCurrentState() != DashState && DashState.jumpDash == true)
         {
@@ -195,7 +222,6 @@ public class PlayerStateMachine : StateMachine
                 DashState.jumpDashAirborneFalling = false;
             }
         }
-
 
         velocity.y += gravity * Time.deltaTime;
 

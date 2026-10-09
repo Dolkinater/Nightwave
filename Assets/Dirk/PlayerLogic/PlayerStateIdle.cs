@@ -12,6 +12,7 @@ public class PlayerStateIdle : PlayerStateGrounded
     public override void thisStart()
     {
         sm.particleController.CallParticle(PlayerParticleController.ParticleStates.none);
+        sm.animator.Play("idle");
     }
 
     public override void thisUpdate()
@@ -26,5 +27,6 @@ public class PlayerStateIdle : PlayerStateGrounded
 
     public override void thisEnd()
     {
+        sm.animator.StopPlayback();
     }
 }

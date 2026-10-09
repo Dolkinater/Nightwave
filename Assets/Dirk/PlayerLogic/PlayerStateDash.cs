@@ -18,10 +18,10 @@ public class PlayerStateDash : StatesBase
         sm.gravity = 0f;
         sm.velocity.y = 0f;
 
-        Debug.Log("Dash");
         dashCoroutine = sm.StartCoroutine(DashCoroutine());
 
         sm.particleController.CallParticle(PlayerParticleController.ParticleStates.dashState);
+        sm.animator.Play("dash");
     }
 
     public override void thisEnd()
@@ -31,6 +31,7 @@ public class PlayerStateDash : StatesBase
             sm.StopCoroutine(dashCoroutine);
             dashCoroutine = null;
         }
+        sm.animator.StopPlayback();
 
         sm.gravity = gravityValue;
         sm.velocity.y = -12;
@@ -60,8 +61,8 @@ public class PlayerStateDash : StatesBase
             groundedDash = true;
         }
 
-        Vector3 moveDirection = new Vector3(sm.inputController.moveInput.x, 0, noMovementDash ? fakeMoveInput : sm.inputController.moveInput.y);
-        Vector3 moveRotation = sm.transform.TransformDirection(moveDirection);
+        //Vector3 moveDirection = new Vector3(sm.inputController.moveInput.x, 0, noMovementDash ? fakeMoveInput : sm.inputController.moveInput.y);
+        Vector3 moveRotation = sm.transform.forward;//sm.transform.TransformDirection(moveDirection);
 
         float startTime = Time.time;
 

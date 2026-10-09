@@ -17,7 +17,7 @@ public class C1SpAttack : MonoBehaviour
 
         if (sm != null) {
             Debug.Log("Hit");
-        sm.ApplyKnockback((other.transform.position - transform.position).normalized, 10f, 1f);
+        sm.ApplyKnockback((other.transform.position - transform.position).normalized, 8f, 2f);
         
         }
         

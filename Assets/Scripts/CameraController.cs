@@ -32,7 +32,18 @@ public class CameraController : MonoBehaviour
         currentYLook = Mathf.Clamp(currentYLook, minimumYLook, maximumYLook);
 
         Quaternion rotation = Quaternion.Euler(currentYLook, currentXLook, 0);
-        Vector3 direction = new Vector3(0, 0, -distance);
+
+        RaycastHit check;
+        float currentDistance = distance;
+
+        if (Physics.Raycast(player.transform.position, (this.transform.position - player.transform.position).normalized, out check, distance, LayerMask.GetMask("Walls")))
+        {
+            currentDistance = check.distance;   
+        }
+
+        Vector3 direction = new Vector3(0, 0, -currentDistance);
+
+
         Vector3 position = player.position + (rotation * direction);
 
         transform.position = position;

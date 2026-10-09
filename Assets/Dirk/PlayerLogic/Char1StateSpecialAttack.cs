@@ -21,6 +21,8 @@ public class Char1StateSpecialAttack : StatesBase
         sm.canMove = true;
 
         sm.c1SpAttack.SetActive(true);
+
+        sm.animator.Play("c1_spinKick");
     }
 
 

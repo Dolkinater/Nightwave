@@ -18,6 +18,7 @@ public class Char1StateSecondaryAttack : StatesBase
         actionCoroutine = sm.StartCoroutine(Attack());
         
         sm.c1Attack2.SetActive(true);
+        sm.animator.Play("c1_lightKick");
     }
 
 
@@ -45,8 +46,6 @@ public class Char1StateSecondaryAttack : StatesBase
             yield return null;
         }
 
-        sm.c1Attack1.SetActive(false);
-        sm.c1Attack1.SetActive(false); 
         
         timer = 0;
         float finalTimer = 0.2f;
@@ -59,6 +58,10 @@ public class Char1StateSecondaryAttack : StatesBase
             timer += Time.deltaTime;
             yield return null;
         }
+
+        sm.c1Attack2.SetActive(false);
+
+        yield return new WaitForSeconds(0.2f);
 
         sm.ChangeState(sm.IdleState);
     }

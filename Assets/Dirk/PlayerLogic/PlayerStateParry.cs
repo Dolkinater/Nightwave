@@ -16,6 +16,8 @@ public class PlayerStateParry : StatesBase
         sm.health.SetIsParrying(true);
 
         time = sm.parryWindow;
+
+        sm.animator.Play("parry");
     }
 
     public override void thisUpdate()
@@ -32,6 +34,7 @@ public class PlayerStateParry : StatesBase
 
     public override void thisEnd()
     {
+        sm.animator.StopPlayback();
         sm.health.SetIsParrying(false);
     }
 }
