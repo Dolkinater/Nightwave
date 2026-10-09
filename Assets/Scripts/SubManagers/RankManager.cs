@@ -9,28 +9,15 @@ public class RankManager : MonoBehaviour
     
     public PlayerData playerData;
 
-
     void Awake()
     {
-        
+       // LevelManager.OnLevelEndEvent += AssignRank;
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     public void AssignRank(Rank rank)
     {
         currentRank = rank;
 
-        switch (playerData.tempScore)
+        switch (playerData.tempScore)   
         {
             case >= 100:
                 rank = Rank.S;

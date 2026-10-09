@@ -3,8 +3,8 @@ using UnityEngine;
 public class BaseState
 {
     public string name;
-    protected StateMachine stateMachine;
-    public BaseState(string name, StateMachine stateMachine)
+    protected StateMachine_Deprecated stateMachine;
+    public BaseState(string name, StateMachine_Deprecated stateMachine)
     {
         this.name = name;
         this.stateMachine = stateMachine;

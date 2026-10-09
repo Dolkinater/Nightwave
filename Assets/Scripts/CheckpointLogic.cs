@@ -7,7 +7,12 @@ public class CheckpointLogic : MonoBehaviour
 
     static Vector3 storedPlayerPosition;
     static Vector3 storedFacingDirection;
-    static int storedScore;
+    public static int storedScore;
+    
+    
+
+    public delegate void CheckpointReached();
+    public static event CheckpointReached OnCheckpointReached;
 
     static List<GameObject> temp_defeatedEnemies; // enemies who are killed during gameplay are added to this list; when respawning, this list will be set to the value of permanent_defeatedEnemies
     public static void KillEnemyOnRespawn(GameObject enemy)
@@ -15,7 +20,7 @@ public class CheckpointLogic : MonoBehaviour
         temp_defeatedEnemies.Add(enemy);
     }
     static List<GameObject> permanent_defeatedEnemies; // once players reach a checkpoint, this list is made equal to temp_defeatedEnemies; when respawning, enemies found in this list will be disabled
-
+    
     void OnRespawn()
     {
         player.transform.position = storedPlayerPosition;
@@ -40,6 +45,8 @@ public class CheckpointLogic : MonoBehaviour
         storedFacingDirection = transform.forward; // sets the player's forward rotation (the direction they will face when respawning) to the forward rotation of the checkpoint
 
         // storedScore = the current value of score the player has earned plus the value of score the player has stored in the multiplier
+        //this value is changed in scoremanager when this event is triggered
+        OnCheckpointReached?.Invoke();
     }
 
     private void OnCollisionEnter(Collision collision)

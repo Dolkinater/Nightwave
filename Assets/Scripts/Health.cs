@@ -28,6 +28,9 @@ public class Health : MonoBehaviour
 
     public bool UnitIsDamageable() { return canTakeDamage && currentInvincibilityTimer <= 0; } // function returns true if this unit can take damage, and false if it can't take damage
 
+    bool isParrying; // if the user is currently parrying against attacks
+    public void SetIsParrying(bool value) { isParrying = value; }
+
     #endregion
 
 
@@ -36,22 +39,41 @@ public class Health : MonoBehaviour
     public delegate void ModifyHealth(int newHealthValue, int maxHealthValue, int healthDelta);
     public static ModifyHealth OnHealthChangeEvent;
 
-    public delegate void UnitDeath(UnitAffiliation unitAffiliation);
+    public delegate void UnitDeath(UnitAffiliation unitAffiliation, GameObject unit);
     public static UnitDeath OnUnitDeathEvent;
 
     #endregion
 
+    StateMachine stateMachine;
+
+    private void Awake()
+    {
+        stateMachine = GetComponent<StateMachine>();
+    }
 
     private void Start()
     {
         currentHealthPoints = maxHealthPoints;
     }
 
+    public void ChangeHealthBy(int value, out bool parriedAttack)
+    {
+        parriedAttack = false;
+
+        if (isParrying) // if this user is parrying, inform the function's caller that the attack failed, prompting a response from the caller
+        {
+            parriedAttack = true;
+            return;
+        }
+
+        ChangeHealthBy(value);
+    }
+
     public void ChangeHealthBy(int value)
     {
         if (value < 0)
         {
-            if (UnitIsDamageable())
+            if (!UnitIsDamageable())
             {
                 return; // if this unit is unable to take damage currently and the health is attempted to be changed by a negative amount, end this function
             }
@@ -70,11 +92,15 @@ public class Health : MonoBehaviour
         
         if (currentHealthPoints <= 0)
         {
-            OnUnitDeathEvent?.Invoke(thisUnitType); // calls an event to functions with UnitAffiliation as a paramater, and thisUnitType defines the parameter's value
+            Debug.Log("Dead");
+            OnUnitDeathEvent?.Invoke(thisUnitType, this.gameObject); // calls an event to functions with UnitAffiliation as a paramater, and thisUnitType defines the parameter's value
+
+            stateMachine?.ChangeState(stateMachine.GetDeathState()); // Kills the associated state machine
 
                 // examples of subscribed functions
                         // if (thisUnitType == UnitAffiliation.player) { reload the level from the beginning; }
                         // if (thisUnitType == UnitAffiliation.enemy) { increase the combo kill counter by one; }
+            
         }
     }
 

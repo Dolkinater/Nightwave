@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovementSM : StateMachine
+public class MovementSM : StateMachine_Deprecated
 {
     [HideInInspector]
     public Idle idleState;
@@ -8,6 +8,8 @@ public class MovementSM : StateMachine
     public Moving movingState;
     [HideInInspector]
     public Jumping jumpingState;
+    [HideInInspector]
+    public Sliding slidingState;
     public CharacterController characterController;
 
     private void Awake()
@@ -15,6 +17,7 @@ public class MovementSM : StateMachine
         idleState = new Idle(this);
         movingState = new Moving(this);
         jumpingState = new Jumping(this);
+        slidingState = new Sliding(this);
     }
     protected override BaseState GetInitialState()
     {
