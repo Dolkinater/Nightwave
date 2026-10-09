@@ -7,16 +7,9 @@ public class CheckpointLogic : MonoBehaviour
 {
     [SerializeField] Transform player;
 
-    static Vector3 storedPlayerPosition;
-    static Vector3 storedFacingDirection;
+    public static Vector3 storedPlayerPosition;
+    public static Vector3 storedFacingDirection;
     public static int storedScore;
-
-    private void Start()
-    {
-        player.transform.position = storedPlayerPosition;
-        player.transform.forward = storedFacingDirection; 
-    }
-
 
     public delegate void CheckpointReached();
     public static event CheckpointReached OnCheckpointReached;
@@ -32,6 +25,8 @@ public class CheckpointLogic : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // current score value is set to the value of storedScore;
+
+        ScoreManager.playerScore = storedScore;
         
     }
 
@@ -48,12 +43,19 @@ public class CheckpointLogic : MonoBehaviour
         OnCheckpointReached?.Invoke();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    bool dontCheckpoint = false;
+    public static int checkpoints = 0; // please delete this later, this is a workaround for getting the player to realize it has activated a checkpoint
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (dontCheckpoint) { return; }
+
+        if (other.gameObject.tag == "Player")
         {
+            dontCheckpoint = true;
+            checkpoints++;
             OnCheckPoint();
         }
-        
+
     }
 }

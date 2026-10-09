@@ -33,7 +33,7 @@ public class RankManager : MonoBehaviour
             switch (scoreManager.GetPlayerScore())   
             {
                 case >= 100:
-                    if (timer.GetLevelTimer() < timeGoal)
+                    if (Timer.levelTimer < timeGoal)
                     {
                         rank = Rank.S;
                     }

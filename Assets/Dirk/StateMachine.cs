@@ -24,7 +24,7 @@ public class StateMachine : MonoBehaviour
     public virtual void InstantiateStates() { }
     public virtual void InstantiateValues() { SetCanChangeStates(true); }
 
-    //public virtual void StartFunctions() { }
+    public virtual void StartFunctions() { }
     public virtual void OnEnableFunctions() { }
     public virtual void OnDisableFunctions() { }
     public virtual StatesBase GetInitialState() { return null; }
@@ -39,7 +39,7 @@ public class StateMachine : MonoBehaviour
 
     private void Start()
     {
-        //StartFunctions();
+        StartFunctions();
 
         if (GetInitialState() != null) { currentState = GetInitialState(); }
 

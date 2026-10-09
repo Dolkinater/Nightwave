@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
         Timer.levelTimer = 0;
         RankManager.finalRank = 0;
         ScoreManager.playerScore = 0;
+        CheckpointLogic.checkpoints = 0;
     }
     
     

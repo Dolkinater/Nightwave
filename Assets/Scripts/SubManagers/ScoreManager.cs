@@ -25,6 +25,7 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] 
     private int uncalculatedScore;
+    public int GetUncalculatedScore() { return uncalculatedScore; }
     
     [SerializeField]
     private int savedPlayerScore;
@@ -38,6 +39,8 @@ public class ScoreManager : MonoBehaviour
     
     [Header("Combo Bar Functionality")]
     [SerializeField] private int comboBarHP = 5;
+    int currentComboBarHP;
+    public float GetComboHealthValue() { return Mathf.Clamp01((float) currentComboBarHP / (float)comboBarHP); }
     //The amount of kills/points needed to reach the multiplier state
     [SerializeField] private int killStreakValue;
     [SerializeField] private bool isKillStreaking;
@@ -59,7 +62,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private int comboHitThreshold;
     [SerializeField] public static int playerScore;
     public int GetPlayerScore() { return playerScore; }
-    private float tierMultiplier;
+    private float tierMultiplier = 1.0f;
     public float GetTierMultiplier() { return tierMultiplier; }
     public int totalPoints;
 
@@ -83,6 +86,8 @@ public class ScoreManager : MonoBehaviour
         CheckpointLogic.OnCheckpointReached += StoreScore;
         //Enemy event subscribe
         Health.OnUnitDeathEvent += UpdateScore;
+
+        LevelManager.OnLevelEndEvent += SetFinalScore;
     }
     
     void OnDestroy()
@@ -90,6 +95,8 @@ public class ScoreManager : MonoBehaviour
         Health.OnHealthChangeEvent -= OnDamagedCombo;
         CheckpointLogic.OnCheckpointReached -= StoreScore;
         Health.OnUnitDeathEvent -= UpdateScore;
+
+        LevelManager.OnLevelEndEvent -= SetFinalScore;
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -127,8 +134,7 @@ public class ScoreManager : MonoBehaviour
 
         StartCoroutine(Multiplier());
     }
-    
-    
+
     
     //Subscribe to the enemy death even then as the level is going on increment the points on kill to a hidden bar
     /// <summary>
@@ -141,34 +147,39 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
 
+    public float GetCutoffTimeValue()
+    {
+        return Mathf.Clamp01(localCutoffTime / streakCutoff);
+    }
+
+    float localCutoffTime = 0;
+
     IEnumerator Multiplier()
     {
         
         //Make it so that it cant be called again
         isKillStreaking = true;
 
-        Debug.Log("I am Killstreaking");
+        //Debug.Log("I am Killstreaking");
         
-        float timer = streakCutoff;
+         localCutoffTime = streakCutoff;
 
-        comboBarHP = 5;
+        currentComboBarHP = comboBarHP;
 
         int lastKill = enemyKillCount;
         
         //change name
-        uncalculatedScore = 0;
         
         //timer has to reset everytime a point is gained
         // can only run while this combo still has HP
         
-        while (timer > 0  && comboBarHP > 0)
+        while (localCutoffTime > 0  && currentComboBarHP > 0)
         {
             //if the current points increases during the loop set reset the timer
             if (enemyKillCount > lastKill)
             {
-                timer = streakCutoff;
+                localCutoffTime = streakCutoff;
                 lastKill = enemyKillCount;
-                uncalculatedScore++;
 
                 for (int i = comboTier.Length - 1; i >= 0; i--)
                 {
@@ -181,7 +192,7 @@ public class ScoreManager : MonoBehaviour
                 
             }
             else{
-                timer -= Time.deltaTime;
+                localCutoffTime -= Time.deltaTime;
             }
             
             
@@ -191,15 +202,25 @@ public class ScoreManager : MonoBehaviour
 
         enemyKillCount = 0;
 
-        Debug.Log("I am not killstreaking");
-        
+        currentComboBarHP = 0;
+
+        //Debug.Log("I am not killstreaking");
+
         //End the kill Streaking state
         isKillStreaking = false;
-        
+
         //Here the score multiplier is calculated and added on to the real score
         SetScore();
+
+        tierMultiplier = 1.0f;
     }
 
+    void SetFinalScore(bool endLevelPositive)
+    {
+        if (!endLevelPositive) { return; }
+
+        SetScore();
+    }
 
     private void SetScore()
     {
@@ -207,11 +228,12 @@ public class ScoreManager : MonoBehaviour
         totalPoints =  playerScore + Mathf.RoundToInt(uncalculatedScore * tierMultiplier);
         playerScore = totalPoints;
 
+        uncalculatedScore = 0;
     }
 
     private void StoreScore()
     {
-        CheckpointLogic.storedScore = totalPoints;
+        CheckpointLogic.storedScore = totalPoints + uncalculatedScore;
     }
 
     void UpdateScore(Health.UnitAffiliation unitAffiliation, GameObject unit)
@@ -220,16 +242,18 @@ public class ScoreManager : MonoBehaviour
         if (unitAffiliation == Health.UnitAffiliation.enemy)
         {
             enemyKillCount++;
-            playerScore += unit.GetComponent<pointDistributor>().scoreValue;
-            Debug.Log("Player score now equals: " +playerScore);
+            uncalculatedScore += unit.GetComponent<pointDistributor>().scoreValue;
+            //Debug.Log("Player score now equals: " +playerScore);
         }
         
         OnScoreEvent?.Invoke(playerScore);
     }
     
 
-    private void OnDamagedCombo(int currentHealth, int maxHealth, int value)
+    private void OnDamagedCombo(int currentHealth, int maxHealth, int value, Health.UnitAffiliation type)
     {
+        if (type != Health.UnitAffiliation.player) { return; }
+
         //get the player's max health and check if they lost more than 1/3 of their hp during a combo
         
         //if the player gained health don't run and just leave the function
@@ -241,15 +265,19 @@ public class ScoreManager : MonoBehaviour
         
         if (comboHitThreshold  >  value)
         {
-            comboBarHP -= 2;
+            currentComboBarHP -= 2;
         }
         else
         {
-            comboBarHP -= 1;
+            currentComboBarHP -= 1;
         }
-        
+
+        Mathf.Clamp(currentComboBarHP, 0, comboBarHP);
+
+
+        Debug.Log("New combo bar health = " + currentComboBarHP);
     }
     
-   
+    
    
 }
