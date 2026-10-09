@@ -14,6 +14,9 @@ public abstract class EnemyStateMachine : StateMachine
     Animator animator;
     public Animator GetAnimator() { return animator; }
 
+    ManualAudioCall audioCall;
+    public ManualAudioCall GetAudioCall() { return audioCall; }
+
     #endregion
 
     #region variables
@@ -135,6 +138,7 @@ public abstract class EnemyStateMachine : StateMachine
 
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        audioCall = GetComponentInChildren<ManualAudioCall>();
     }
     
     public override void InstantiateStates()

@@ -105,6 +105,8 @@ public class PlayerStateMachine : StateMachine
 
     [HideInInspector] public Animator animator;
 
+    [HideInInspector] public ManualAudioCall manualAudioCall;
+
     [Header("Camera Rotation")]
     public GameObject orientation;
 
@@ -128,6 +130,8 @@ public class PlayerStateMachine : StateMachine
 
         health = GetComponent<Health>();
         animator = GetComponentInChildren<Animator>();
+
+        manualAudioCall = GetComponentInChildren<ManualAudioCall>();
 
         c1Attack1Left.SetActive(false);
         c1Attack1Right.SetActive(false);

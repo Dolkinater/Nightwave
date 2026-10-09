@@ -22,6 +22,7 @@ public class PlayerStateDash : StatesBase
 
         sm.particleController.CallParticle(PlayerParticleController.ParticleStates.dashState);
         sm.animator.Play("dash");
+        sm.manualAudioCall.CallSFXByName("dash");
     }
 
     public override void thisEnd()
@@ -31,7 +32,6 @@ public class PlayerStateDash : StatesBase
             sm.StopCoroutine(dashCoroutine);
             dashCoroutine = null;
         }
-        sm.animator.StopPlayback();
 
         sm.gravity = gravityValue;
         sm.velocity.y = -12;

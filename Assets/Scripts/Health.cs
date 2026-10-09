@@ -46,8 +46,11 @@ public class Health : MonoBehaviour
 
     StateMachine stateMachine;
 
+    ManualAudioCall audioCall;
+
     private void Awake()
     {
+        audioCall = GetComponentInChildren<ManualAudioCall>();
         stateMachine = GetComponent<StateMachine>();
     }
 
@@ -82,6 +85,8 @@ public class Health : MonoBehaviour
             {
                 currentInvincibilityTimer = maxInvincibilityTimer;
             }
+
+            audioCall?.CallSFXByName("damage");
         }
 
         currentHealthPoints += value;

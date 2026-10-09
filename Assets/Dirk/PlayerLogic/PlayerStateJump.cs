@@ -16,6 +16,7 @@ public class PlayerStateJump : StatesBase
 
         sm.particleController.CallParticle(PlayerParticleController.ParticleStates.jumpState);
         sm.animator.Play("jump");
+        sm.manualAudioCall.CallSFXByName("jump");
     }
 
     public override void thisUpdate()
@@ -42,7 +43,6 @@ public class PlayerStateJump : StatesBase
 
     public override void thisEnd()
     {
-        sm.animator.StopPlayback();
         sm.canMove = false;
     }
 }

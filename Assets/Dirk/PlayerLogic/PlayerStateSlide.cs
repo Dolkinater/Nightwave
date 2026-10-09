@@ -29,6 +29,7 @@ public class PlayerStateSlide : StatesBase
         sm.particleController.CallParticle(PlayerParticleController.ParticleStates.slideState);
 
         sm.animator.Play("slide");
+        sm.manualAudioCall.CallSFXByName("slide");
     }
 
     public override void thisUpdate()
@@ -68,7 +69,6 @@ public class PlayerStateSlide : StatesBase
 
     public override void thisEnd()
     {
-        sm.animator.StopPlayback();
         sm.playerController.height = 2;
     }
 }

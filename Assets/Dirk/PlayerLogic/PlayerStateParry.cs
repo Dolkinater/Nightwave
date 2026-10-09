@@ -18,6 +18,7 @@ public class PlayerStateParry : StatesBase
         time = sm.parryWindow;
 
         sm.animator.Play("parry");
+        sm.manualAudioCall.CallSFXByName("parry");
     }
 
     public override void thisUpdate()
@@ -34,7 +35,6 @@ public class PlayerStateParry : StatesBase
 
     public override void thisEnd()
     {
-        sm.animator.StopPlayback();
         sm.health.SetIsParrying(false);
     }
 }

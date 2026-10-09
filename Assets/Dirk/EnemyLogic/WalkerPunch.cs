@@ -2,12 +2,7 @@ using UnityEngine;
 
 public class WalkerPunch : MonoBehaviour
 {
-    Walker_EnemySM enemy;
-
-    private void Awake()
-    {
-        enemy = transform.parent.GetComponent<Walker_EnemySM>();
-    }
+    [SerializeField] Walker_EnemySM enemy;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,7 +18,6 @@ public class WalkerPunch : MonoBehaviour
 
             if (enemy && parried)
             {
-                Debug.Log("Parry Attack");
                 enemy.ApplyKnockback((transform.position - other.transform.position).normalized, 10f, 1f);
             }
         }

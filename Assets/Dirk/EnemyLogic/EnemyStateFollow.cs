@@ -32,6 +32,7 @@ public class EnemyStateFollow : StatesBase
         timeAttackPlayer = sm.attackFrequency + Random.Range(-.5f, .5f);
 
         sm.GetAnimator().Play("follow");
+        sm.GetAudioCall().PlayLoopingAudio(true);
     }
 
     public override void thisUpdate()
@@ -188,5 +189,7 @@ public class EnemyStateFollow : StatesBase
             sm.agent.updateRotation = false;
             sm.agent.ResetPath();
         }
+
+        sm.GetAudioCall().PlayLoopingAudio(false);
     }
 }
