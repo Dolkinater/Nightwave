@@ -57,7 +57,7 @@ public class ScoreManager : MonoBehaviour
         new MultiplierTier(4.0f, 50)
     };
     [SerializeField] private int comboHitThreshold;
-    [SerializeField] private int playerScore;
+    [SerializeField] public static int playerScore;
     public int GetPlayerScore() { return playerScore; }
     private float tierMultiplier;
     public float GetTierMultiplier() { return tierMultiplier; }

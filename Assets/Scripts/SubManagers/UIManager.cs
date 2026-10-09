@@ -14,11 +14,9 @@ public class UIManager : MonoBehaviour
     
     #region References
      public ScoreManager scoreManager;
-     public GameObject scoreMangerObject;
-     public GameObject killStreakUIObject;
-
      public GameObject player;
      public Health playerHealth;
+     public GameObject killStreakUIObject;
      //Get references to the dash stock anf ability cooldowns
     #endregion
 
@@ -32,7 +30,6 @@ public class UIManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        scoreManager = scoreMangerObject.GetComponent<ScoreManager>();
         playerHealth = player.GetComponent<Health>();
     }
 

@@ -67,7 +67,7 @@ public class LevelManager : MonoBehaviour
         
         //Find the Player Controller
         player = GameObject.FindGameObjectWithTag("Player");
-
+        
         
 
     }
