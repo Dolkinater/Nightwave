@@ -5,36 +5,45 @@ public enum Rank {S, A, B, C, D}
 public class RankManager : MonoBehaviour
 {
 
-    private Rank currentRank;
+    private Rank rank;
+    public ScoreManager scoreManager;
+    public Timer timer;
+    public float timeGoal;
+    
     
     public PlayerData playerData;
 
     void Awake()
     {
-       // LevelManager.OnLevelEndEvent += AssignRank;
+       LevelManager.OnLevelEndEvent += AssignRank;
     }
-    public void AssignRank(Rank rank)
+    public void AssignRank(bool competedLevel)
     {
-        currentRank = rank;
-
-        switch (playerData.tempScore)   
+        if (competedLevel)
         {
-            case >= 100:
-                rank = Rank.S;
-                break;
-            case >= 75:
-                rank = Rank.A;
-                break;
-            case >=  50:
-                rank = Rank.B;
-                break;
-            case >= 25:
-                rank = Rank.C;
-                break;
-            case < 25:
-                rank = Rank.D;
-                break;
+            switch (scoreManager.GetPlayerScore())   
+            {
+                case >= 100:
+                    if (timer.GetLevelTimer() < timeGoal)
+                    {
+                        rank = Rank.S;
+                    }
+                    break;
+                case >= 75:
+                    rank = Rank.A;
+                    break;
+                case >=  50:
+                    rank = Rank.B;
+                    break;
+                case >= 25:
+                    rank = Rank.C;
+                    break;
+                case < 25:
+                    rank = Rank.D;
+                    break;
             
+            }
         }
+        
     }
 }

@@ -7,11 +7,18 @@ public struct MultiplierTier
 {
     public float tierMultiplier;
     public int enemyKillsNeeded;
-    
+
+    public MultiplierTier(float f, int i) 
+    {
+        tierMultiplier = f;
+        enemyKillsNeeded = i;
+    }
 }
 public class ScoreManager : MonoBehaviour
 {
     #region Variables
+    
+    
     
     [SerializeField]
     private int currentPoints;
@@ -24,6 +31,8 @@ public class ScoreManager : MonoBehaviour
     
     [SerializeField]
     private int enemyKillCount;
+
+    public int GetEnemyKillCount() {return enemyKillCount;}
     
     public LevelData levelData;
     
@@ -32,17 +41,40 @@ public class ScoreManager : MonoBehaviour
     //The amount of kills/points needed to reach the multiplier state
     [SerializeField] private int killStreakValue;
     [SerializeField] private bool isKillStreaking;
+    public bool CheckKillStreak() { return isKillStreaking; }
     [SerializeField] private float streakCutoff = 5.0f;
-    [SerializeField] private MultiplierTier[] comboTier;
+    MultiplierTier[] comboTier = new MultiplierTier[]
+    {
+        new MultiplierTier(1.1f, 3),
+        new MultiplierTier(1.2f, 5),
+        new MultiplierTier(1.5f, 8),
+        new MultiplierTier(1.75f, 12),
+        new MultiplierTier(2.0f, 16),
+        new MultiplierTier(2.2f, 20),
+        new MultiplierTier(2.5f, 25),
+        new MultiplierTier(3.0f, 30),
+        new MultiplierTier(3.5f, 40),
+        new MultiplierTier(4.0f, 50)
+    };
     [SerializeField] private int comboHitThreshold;
     [SerializeField] private int playerScore;
+    public int GetPlayerScore() { return playerScore; }
     private float tierMultiplier;
+    public float GetTierMultiplier() { return tierMultiplier; }
     public int totalPoints;
 
     #endregion
-    
 
+
+    #region Events
+
+    public delegate void OnScore(int playerScore);
+
+    public static event OnScore OnScoreEvent;
     
+    
+    #endregion
+
     
 
     void Awake()
@@ -64,7 +96,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         
-
+        
         
 
     }
@@ -145,6 +177,8 @@ public class ScoreManager : MonoBehaviour
                         tierMultiplier = comboTier[i].tierMultiplier;
                     }
                 }
+                
+                
             }
             else{
                 timer -= Time.deltaTime;
@@ -189,6 +223,8 @@ public class ScoreManager : MonoBehaviour
             playerScore += unit.GetComponent<pointDistributor>().scoreValue;
             Debug.Log("Player score now equals: " +playerScore);
         }
+        
+        OnScoreEvent?.Invoke(playerScore);
     }
     
 
