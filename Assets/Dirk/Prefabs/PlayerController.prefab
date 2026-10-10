@@ -10320,7 +10320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   thisUnitType: 0
-  maxHealthPoints: 50
+  maxHealthPoints: 100
   hasIFrames: 1
   maxInvincibilityTimer: 0.6
 --- !u!1 &5316325379194799899

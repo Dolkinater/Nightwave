@@ -97,10 +97,13 @@ public class GameManager : MonoBehaviour
 
     public static void ReloadData()
     {
+        Debug.Log("Reload");
+
         Timer.levelTimer = 0;
         RankManager.finalRank = 0;
         ScoreManager.playerScore = 0;
         CheckpointLogic.checkpoints = 0;
+        CheckpointLogic.storedScore = 0;
     }
     
     

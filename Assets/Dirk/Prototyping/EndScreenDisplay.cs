@@ -23,25 +23,28 @@ public class EndScreenDisplay : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         finalScore = ScoreManager.playerScore;
         finalTime = Mathf.RoundToInt(Timer.levelTimer);
 
         scoreFinal.text = "Score: " + finalScore;
         timeFinal.text = "Time: " + finalTime;
 
-        if (finalTime <= 60)
+        if (finalTime <= 90)
         {
             bonus = 10000;
         }
-        else if (finalTime <= 80)
+        else if (finalTime <= 110)
         {
             bonus = 8000;
         }
-        else if (finalTime <= 100)
+        else if (finalTime <= 150)
         {
             bonus = 1000;
         }
-        else if (finalTime <= 150)
+        else if (finalTime <= 200)
         {
             bonus = 500;
         }

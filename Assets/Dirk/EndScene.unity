@@ -339,7 +339,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 170846220}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 170846222}
+        m_TargetAssemblyTypeName: RestartGamePrototype, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &170846220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,7 +1245,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Time Bonuses:\n+10000 points = 60s \n+8000 points = 80s\n+1000 points = 100s\n+500 points = 150s\n"
+  m_text: "Time Bonuses:\n+10000 points = 90s \n+8000 points = 110s\n+1000 points = 150s\n+500 points = 200s\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
